@@ -1886,6 +1886,117 @@ class WAFBypasser:
                     return await self._get_cert_direct(host, port, context)
             
             cert = await _get_ssl_cert()
+            
+            # 提取SAN (Subject Alternative Names)
+            san_list = []
+            if cert and 'subjectAltName' in cert:
+                for type_, value in cert['subjectAltName']:
+                    if type_ == 'DNS':
+                        san_list.append(value)
+            
+            # 分析SAN中的域名
+            origin_patterns = [
+                'origin', 'source', 'real', 'actual', 'direct',
+                'internal', 'private', 'backend', 'server',
+                'node', 'web', 'www-origin', 'www-real'
+            ]
+            
+            # 异步解析SAN域名 - 修复resolver阻塞
+            async def _resolve_san_domain(san_domain):
+                try:
+                    # 检查是否包含源站关键词
+                    is_potential_origin = any(pattern in san_domain.lower() for pattern in origin_patterns)
+                    
+                    # 跳过通配符证书
+                    if san_domain.startswith('*.'):
+                        san_domain = san_domain[2:]
+                    
+                    # 如果不是当前域名且可能是源站
+                    if san_domain != domain and (is_potential_origin or 'cdn' not in san_domain.lower()):
+                        def _sync_san_resolve():
+                            resolver = dns.resolver.Resolver()
+                            resolver.timeout = 2
+                            resolver.lifetime = 2
+                            return resolver.resolve(san_domain, 'A')
+                        
+                        answers = await asyncio.to_thread(_sync_san_resolve)
+                        san_servers = []
+                        for rdata in answers:
+                            ip = str(rdata)
+                            if not self._is_cdn_ip(ip):
+                                san_servers.append(OriginServer(
+                                    ip=ip,
+                                    confidence=0.85 if is_potential_origin else 0.65,
+                                    discovery_method=f'ssl_san_{san_domain}',
+                                    ports=[443]
+                                ))
+                                self.logger.info(f"[+] SSL SAN发现潜在源站域名: {san_domain} -> {ip}")
+                        return san_servers
+                except:
+                    return []
+            
+            # 并发解析所有SAN域名
+            if san_list:
+                san_tasks = [_resolve_san_domain(san_domain) for san_domain in san_list]
+                san_results = await asyncio.gather(*san_tasks, return_exceptions=True)
+                
+                # 合并结果
+                for result in san_results:
+                    if isinstance(result, list):
+                        servers.extend(result)
+                
+                # 额外检查：证书CN (Common Name) - 异步修复
+                if 'subject' in cert:
+                    async def _resolve_cn_domain(cn_value):
+                        if cn_value != domain and any(pattern in cn_value.lower() for pattern in origin_patterns):
+                            try:
+                                def _sync_cn_resolve():
+                                    resolver = dns.resolver.Resolver()
+                                    resolver.timeout = 2
+                                    resolver.lifetime = 2
+                                    return resolver.resolve(cn_value, 'A')
+                                
+                                answers = await asyncio.to_thread(_sync_cn_resolve)
+                                cn_servers = []
+                                for rdata in answers:
+                                    ip = str(rdata)
+                                    if not self._is_cdn_ip(ip):
+                                        cn_servers.append(OriginServer(
+                                            ip=ip,
+                                            confidence=0.8,
+                                            discovery_method=f'ssl_cn_{cn_value}',
+                                            ports=[443]
+                                        ))
+                                return cn_servers
+                            except:
+                                return []
+                        return []
+                    
+                    # 提取所有CN值
+                    cn_values = []
+                    for rdn in cert['subject']:
+                        for name, value in rdn:
+                            if name == 'commonName':
+                                cn_values.append(value)
+                    
+                    # 并发解析所有CN域名
+                    if cn_values:
+                        cn_tasks = [_resolve_cn_domain(cn_val) for cn_val in cn_values]
+                        cn_results = await asyncio.gather(*cn_tasks, return_exceptions=True)
+                        
+                        # 合并结果
+                        for result in cn_results:
+                            if isinstance(result, list):
+                                servers.extend(result)
+                                                
+        except socket.timeout:
+            self.logger.warning(f"[!] SSL连接超时: {domain}")
+        except ssl.SSLError as e:
+            self.logger.warning(f"[!] SSL错误: {type(e).__name__}")
+        except Exception as e:
+            self.logger.warning(f"[!] SSL SAN分析失败: {type(e).__name__} - {str(e)[:100]}")
+        
+        return servers
     
     async def _get_cert_via_proxy(self, host: str, port: int) -> dict:
         """通过代理获取SSL证书"""
@@ -1952,117 +2063,6 @@ class WAFBypasser:
                 raise sock_err
         
         return await asyncio.to_thread(_sync_ssl_connect)
-        
-        # 提取SAN (Subject Alternative Names)
-        san_list = []
-        if cert and 'subjectAltName' in cert:
-            for type_, value in cert['subjectAltName']:
-                if type_ == 'DNS':
-                    san_list.append(value)
-        
-        # 分析SAN中的域名
-        origin_patterns = [
-            'origin', 'source', 'real', 'actual', 'direct',
-            'internal', 'private', 'backend', 'server',
-            'node', 'web', 'www-origin', 'www-real'
-        ]
-        
-        # 异步解析SAN域名 - 修复resolver阻塞
-        async def _resolve_san_domain(san_domain):
-            try:
-                # 检查是否包含源站关键词
-                is_potential_origin = any(pattern in san_domain.lower() for pattern in origin_patterns)
-                
-                # 跳过通配符证书
-                if san_domain.startswith('*.'):
-                    san_domain = san_domain[2:]
-                
-                # 如果不是当前域名且可能是源站
-                if san_domain != domain and (is_potential_origin or 'cdn' not in san_domain.lower()):
-                    def _sync_san_resolve():
-                        resolver = dns.resolver.Resolver()
-                        resolver.timeout = 2
-                        resolver.lifetime = 2
-                        return resolver.resolve(san_domain, 'A')
-                    
-                    answers = await asyncio.to_thread(_sync_san_resolve)
-                    san_servers = []
-                    for rdata in answers:
-                        ip = str(rdata)
-                        if not self._is_cdn_ip(ip):
-                            san_servers.append(OriginServer(
-                                ip=ip,
-                                confidence=0.85 if is_potential_origin else 0.65,
-                                discovery_method=f'ssl_san_{san_domain}',
-                                ports=[443]
-                            ))
-                            self.logger.info(f"[+] SSL SAN发现潜在源站域名: {san_domain} -> {ip}")
-                    return san_servers
-            except:
-                return []
-        
-        # 并发解析所有SAN域名
-        if san_list:
-            san_tasks = [_resolve_san_domain(san_domain) for san_domain in san_list]
-            san_results = await asyncio.gather(*san_tasks, return_exceptions=True)
-            
-            # 合并结果
-            for result in san_results:
-                if isinstance(result, list):
-                    servers.extend(result)
-            
-            # 额外检查：证书CN (Common Name) - 异步修复
-            if 'subject' in cert:
-                async def _resolve_cn_domain(cn_value):
-                    if cn_value != domain and any(pattern in cn_value.lower() for pattern in origin_patterns):
-                        try:
-                            def _sync_cn_resolve():
-                                resolver = dns.resolver.Resolver()
-                                resolver.timeout = 2
-                                resolver.lifetime = 2
-                                return resolver.resolve(cn_value, 'A')
-                            
-                            answers = await asyncio.to_thread(_sync_cn_resolve)
-                            cn_servers = []
-                            for rdata in answers:
-                                ip = str(rdata)
-                                if not self._is_cdn_ip(ip):
-                                    cn_servers.append(OriginServer(
-                                        ip=ip,
-                                        confidence=0.8,
-                                        discovery_method=f'ssl_cn_{cn_value}',
-                                        ports=[443]
-                                    ))
-                            return cn_servers
-                        except:
-                            return []
-                    return []
-                
-                # 提取所有CN值
-                cn_values = []
-                for rdn in cert['subject']:
-                    for name, value in rdn:
-                        if name == 'commonName':
-                            cn_values.append(value)
-                
-                # 并发解析所有CN域名
-                if cn_values:
-                    cn_tasks = [_resolve_cn_domain(cn_val) for cn_val in cn_values]
-                    cn_results = await asyncio.gather(*cn_tasks, return_exceptions=True)
-                    
-                    # 合并结果
-                    for result in cn_results:
-                        if isinstance(result, list):
-                            servers.extend(result)
-                                            
-        except socket.timeout:
-            self.logger.warning(f"[!] SSL连接超时: {domain}")
-        except ssl.SSLError as e:
-            self.logger.warning(f"[!] SSL错误: {type(e).__name__}")
-        except Exception as e:
-            self.logger.warning(f"[!] SSL SAN分析失败: {type(e).__name__} - {str(e)[:100]}")
-        
-        return servers
     
     async def _find_via_favicon_hash(self, url: str, use_proxy: bool = False) -> List[OriginServer]:
         """通过favicon哈希查找 - 增强版"""
