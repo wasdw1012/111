@@ -123,6 +123,7 @@ class WasmRuntimeAnalyzer:
             # 阶段1: Wasm运行时检测和指纹识别
             print(f"\n[PHASE 1] Wasm Runtime Detection & Fingerprinting")
             print(f"-" * 50)
+            print("[WASM] ========== 开始阶段1: 运行时检测和指纹识别 ==========")
             runtime_detection = await self._detect_wasm_runtime()
             analysis_results['runtime_detection'] = runtime_detection
             
@@ -169,6 +170,7 @@ class WasmRuntimeAnalyzer:
             if should_continue_full_analysis or posture in ['deep', 'paranoid']:
                 print(f"\n[PHASE 2] Plugin System Analysis")
                 print(f"-" * 50)
+                print("[WASM] ========== 开始阶段2: 插件系统分析 ==========")
                 plugin_analysis = await self._analyze_plugin_system()
                 analysis_results['plugin_analysis'] = plugin_analysis
             else:
@@ -197,6 +199,7 @@ class WasmRuntimeAnalyzer:
             if should_continue_full_analysis or posture in ['deep', 'paranoid']:
                 print(f"\n[PHASE 3] Sandbox Security Assessment") 
                 print(f"-" * 50)
+                print("[WASM] ========== 开始阶段3: 沙箱安全评估（重要且耗时）==========")
                 sandbox_security = await self._assess_sandbox_security()
                 analysis_results['sandbox_security'] = sandbox_security
             else:
@@ -223,6 +226,7 @@ class WasmRuntimeAnalyzer:
             if should_continue_full_analysis or posture in ['deep', 'paranoid']:
                 print(f"\n[PHASE 4] Memory Safety Analysis")
                 print(f"-" * 50)
+                print("[WASM] ========== 开始阶段4: 内存安全分析 ==========")
                 memory_safety = await self._analyze_memory_safety()
                 analysis_results['memory_safety'] = memory_safety
             else:
@@ -273,6 +277,7 @@ class WasmRuntimeAnalyzer:
             # 阶段5: 注入攻击向量评估
             print(f"\n[PHASE 5] Injection Vector Assessment")
             print(f"-" * 50)
+            print("[WASM] ========== 开始阶段5: 注入攻击向量评估 ==========")
             injection_vectors = await self._assess_injection_vectors()
             analysis_results['injection_vectors'] = injection_vectors
             
@@ -297,6 +302,7 @@ class WasmRuntimeAnalyzer:
             # 阶段6: 时序攻击分析
             print(f"\n[PHASE 6] Timing Attack Analysis")
             print(f"-" * 50)
+            print("[WASM] ========== 开始阶段6: 时序攻击分析（最耗时）==========")
             timing_attacks = await self._analyze_timing_attacks()
             analysis_results['timing_attacks'] = timing_attacks
             
@@ -353,6 +359,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_wasm_runtime(self) -> Dict:
         """检测Wasm运行时环境"""
+        print("[WASM] 开始检测Wasm运行时环境...")
         
         detection_results = {
             'wasm_detected': False,
@@ -434,6 +441,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_via_headers(self) -> Dict:
         """通过HTTP响应头检测Wasm"""
+        print("[WASM] 通过HTTP响应头检测Wasm...")
         
         try:
             # 发送探测请求
@@ -486,6 +494,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_via_timing_patterns(self) -> Dict:
         """通过时序模式检测Wasm编译缓存"""
+        print("[WASM] 通过时序模式检测Wasm编译缓存（这可能需要一些时间）...")
         
         try:
             print(f"[*] Analyzing Wasm compilation timing patterns...")
@@ -585,6 +594,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_via_error_responses(self) -> Dict:
         """通过错误响应检测Wasm特征"""
+        print("[WASM] 通过错误响应检测Wasm特征...")
         
         try:
             wasm_error_paths = [
@@ -648,6 +658,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_via_content_types(self) -> Dict:
         """通过内容类型检测Wasm支持"""
+        print("[WASM] 通过内容类型检测Wasm支持...")
         
         try:
             # 请求Wasm相关内容类型
@@ -701,6 +712,7 @@ class WasmRuntimeAnalyzer:
     
     async def _detect_via_admin_interfaces(self) -> Dict:
         """通过管理接口检测Wasm"""
+        print("[WASM] 通过管理接口检测Wasm...")
         
         try:
             admin_endpoints = [
@@ -803,6 +815,7 @@ class WasmRuntimeAnalyzer:
     
     async def _analyze_plugin_system(self) -> Dict:
         """分析Wasm插件系统"""
+        print("[WASM] 开始分析Wasm插件系统...")
         
         plugin_analysis = {
             'plugin_discovery': {},
@@ -846,6 +859,7 @@ class WasmRuntimeAnalyzer:
     
     async def _discover_wasm_plugins(self) -> Dict:
         """发现活跃的Wasm插件"""
+        print("[WASM] 发现活跃的Wasm插件...")
         
         discovery_results = {
             'discovered_plugins': [],
@@ -894,6 +908,7 @@ class WasmRuntimeAnalyzer:
     
     async def _discover_plugins_via_headers(self) -> Dict:
         """通过响应头发现插件"""
+        print("[WASM]     -> 通过响应头发现插件...")
         
         try:
             # 发送多种请求类型来触发不同插件
@@ -983,6 +998,7 @@ class WasmRuntimeAnalyzer:
     
     async def _discover_plugins_via_paths(self) -> Dict:
         """通过特定路径探测插件"""
+        print("[WASM]     -> 通过特定路径探测插件...")
         
         try:
             plugin_paths = [
@@ -1110,6 +1126,7 @@ class WasmRuntimeAnalyzer:
     
     async def _discover_plugins_via_timing(self) -> Dict:
         """通过时序分析发现插件"""
+        print("[WASM]     -> 通过时序分析发现插件（耗时）...")
         
         try:
             # 测试不同类型的请求，观察时序差异
@@ -1161,6 +1178,7 @@ class WasmRuntimeAnalyzer:
     
     async def _discover_plugins_via_errors(self) -> Dict:
         """通过错误消息发现插件"""
+        print("[WASM]     -> 通过错误消息发现插件...")
         
         try:
             # 发送可能触发插件错误的请求
@@ -1236,6 +1254,7 @@ class WasmRuntimeAnalyzer:
     
     async def _analyze_plugin_lifecycle(self) -> Dict:
         """分析插件生命周期"""
+        print("[WASM] 分析插件生命周期...")
         
         lifecycle_analysis = {
             'initialization_timing': {},
@@ -1585,6 +1604,7 @@ class WasmRuntimeAnalyzer:
     
     async def _analyze_plugin_communication(self) -> Dict:
         """分析插件间通信"""
+        print("[WASM] 分析插件间通信...")
         
         try:
             communication_analysis = {
@@ -1643,6 +1663,7 @@ class WasmRuntimeAnalyzer:
     
     async def _assess_plugin_config_security(self) -> Dict:
         """评估插件配置安全性"""
+        print("[WASM] 评估插件配置安全性...")
         
         try:
             config_security = {
@@ -1745,6 +1766,7 @@ class WasmRuntimeAnalyzer:
     
     async def _evaluate_plugin_isolation(self) -> Dict:
         """评估插件隔离机制"""
+        print("[WASM] 评估插件隔离机制...")
         
         try:
             isolation_analysis = {
@@ -1846,6 +1868,8 @@ class WasmRuntimeAnalyzer:
     
     async def _assess_sandbox_security(self) -> Dict:
         """评估沙箱安全性"""
+        print("[WASM] ======== 开始沙箱安全性评估（重要）========")
+        print("[WASM] 这个测试可能耗时较长，请耐心等待...")
         
         sandbox_assessment = {
             'sandbox_escape_attempts': {},
@@ -1883,6 +1907,7 @@ class WasmRuntimeAnalyzer:
     
     async def _test_sandbox_escape_attempts(self) -> Dict:
         """测试沙箱逃逸尝试"""
+        print("[WASM]   -> 正在测试沙箱逃逸向量...")
         
         escape_results = {
             'memory_corruption_attempts': [],
@@ -1921,6 +1946,7 @@ class WasmRuntimeAnalyzer:
     
     async def _test_memory_corruption_attacks(self) -> List[Dict]:
         """测试内存破坏攻击"""
+        print("[WASM]     -> 测试内存破坏攻击...")
         
         memory_attacks = []
         
@@ -2019,6 +2045,7 @@ class WasmRuntimeAnalyzer:
     
     async def _test_control_flow_hijacking(self) -> List[Dict]:
         """测试控制流劫持"""
+        print("[WASM]     -> 测试控制流劫持...")
         
         control_flow_attacks = []
         
@@ -2161,6 +2188,8 @@ class WasmRuntimeAnalyzer:
     
     async def _test_capability_restrictions(self) -> Dict:
         """测试权限限制"""
+        print("[WASM] ======== 开始测试信道方法（权限限制）========")
+        print("[WASM] 这是沙箱测试后的信道方法测试，可能耗时较长...")
         
         capability_tests = {
             'file_system_access': False,
@@ -2307,6 +2336,7 @@ class WasmRuntimeAnalyzer:
     
     async def _test_resource_limitations(self) -> Dict:
         """测试资源限制"""
+        print("[WASM]   -> 测试资源限制（内存/CPU/时间）...")
         
         resource_tests = {
             'memory_limit_enforced': False,
@@ -2461,6 +2491,7 @@ class WasmRuntimeAnalyzer:
     
     async def _test_api_access_controls(self) -> Dict:
         """测试API访问控制"""
+        print("[WASM]   -> 测试API访问控制...")
         
         api_tests = {
             'unauthorized_api_access': False,
@@ -2570,6 +2601,7 @@ class WasmRuntimeAnalyzer:
     
     async def _analyze_memory_safety(self) -> Dict:
         """分析内存安全"""
+        print("[WASM] 开始分析内存安全性...")
         
         memory_analysis = {
             'buffer_overflow_protection': {},
@@ -2626,9 +2658,10 @@ class WasmRuntimeAnalyzer:
         return memory_analysis
     
     async def _test_buffer_overflow_protection(self) -> Dict:
-        """测试缓冲区溢出保护 - 扩展真实端点与行为验证
+        """测试缓冲区溢出保护 - 扩展真实端点与行为验证"""
+        print("[WASM]   -> 测试缓冲区溢出保护...")
 
-        策略：
+        """策略：
         - 多端点、多载荷类型（JSON 与 octet-stream）联合探测
         - 区分边界防护(413/400)与异常崩溃(5xx/崩溃字样)
         - 额外健康检查，验证测试后服务是否稳定
@@ -2816,9 +2849,10 @@ class WasmRuntimeAnalyzer:
         }
     
     async def _test_use_after_free_detection(self) -> Dict:
-        """测试释放后使用检测 - 扩展真实端点与多阶段验证
+        """测试释放后使用检测 - 扩展真实端点与多阶段验证"""
+        print("[WASM]   -> 测试释放后使用检测...")
 
-        策略：
+        """策略：
         - 多端点候选：/api/memory/uaf_test,/runtime/memory/uaf,/wasm/memory/uaf,/debug/memory/uaf_test
         - 两阶段/三阶段序列（alloc -> free -> use）最佳努力模拟
         - 检测常见 UAF 指示词（heap-use-after-free/AddressSanitizer 等）
@@ -2945,9 +2979,10 @@ class WasmRuntimeAnalyzer:
         }
     
     async def _test_double_free_detection(self) -> Dict:
-        """测试双重释放检测 - 扩展真实端点与多阶段验证
+        """测试双重释放检测 - 扩展真实端点与多阶段验证"""
+        print("[WASM]   -> 测试双重释放检测...")
 
-        策略：
+        """策略：
         - 多端点候选：/api/memory/double_free_test,/runtime/memory/free_twice,/wasm/memory/df,/debug/memory/double_free
         - 分阶段序列（alloc -> free -> free）最佳努力模拟
         - 检测常见 DF 指示词（double free/heap corruption/ASAN）
@@ -3061,6 +3096,7 @@ class WasmRuntimeAnalyzer:
     
     async def _assess_memory_leaks(self) -> Dict:
         """评估内存泄漏"""
+        print("[WASM]   -> 评估内存泄漏（多次请求测试）...")
         
         try:
             # 发送多个分配请求而不释放，观察内存使用
@@ -3427,6 +3463,7 @@ class WasmRuntimeAnalyzer:
 
     async def _assess_injection_vectors(self) -> Dict:
         """评估注入攻击向量"""
+        print("[WASM] 评估注入攻击向量...")
         
         injection_analysis = {
             'code_injection': {},
@@ -3650,6 +3687,7 @@ class WasmRuntimeAnalyzer:
 
     async def _analyze_timing_attacks(self) -> Dict:
         """分析时序攻击向量"""
+        print("[WASM] 分析时序攻击向量（可能耗时较长）...")
         
         timing_analysis = {
             'attack_vectors': [],
