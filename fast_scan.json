@@ -1,0 +1,3818 @@
+{
+  "target": {
+    "host": "go88.com",
+    "tls_port": 443,
+    "http_port": 80,
+    "ssh_port": 22000,
+    "grpc_port": 443
+  },
+  "timestamp": "2025-09-03T04:46:16.978538",
+  "phases": {
+    "smart_detection": {
+      "success": true,
+      "duration_ms": 14963,
+      "error": null,
+      "data": {
+        "22": {
+          "port": 22,
+          "service": "unknown",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": false
+        },
+        "22000": {
+          "port": 22000,
+          "service": "ssh",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": true
+        },
+        "80": {
+          "port": 80,
+          "service": "http",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": false
+        },
+        "443": {
+          "port": 443,
+          "service": "https",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": true,
+          "is_protected": false
+        },
+        "2222": {
+          "port": 2222,
+          "service": "ssh",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": true
+        },
+        "15000": {
+          "port": 15000,
+          "service": "unknown",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": false
+        },
+        "8000": {
+          "port": 8000,
+          "service": "http-alt",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": false
+        },
+        "3389": {
+          "port": 3389,
+          "service": "rdp",
+          "is_tls": false,
+          "banner": null,
+          "needs_https": false,
+          "is_protected": true
+        }
+      }
+    },
+    "fingerprint": {
+      "success": true,
+      "duration_ms": 10012,
+      "error": null,
+      "data": {
+        "cert_rebel_probe_error": "timeout after 10.0s",
+        "ssh_fp": [
+          [
+            "no_ssh_service",
+            "No SSH service found on ports",
+            "no",
+            "FAILED on ports [22000, 22]",
+            0,
+            "",
+            0
+          ]
+        ],
+        "tls_fp": [
+          [
+            "sane-modern",
+            "TYPE 22 v3.3 len=80",
+            "8770e5405609",
+            125
+          ],
+          [
+            "incoherent",
+            "ALERT 2/86(inappropriate_fallback)",
+            "v3.1 len=2",
+            87
+          ],
+          [
+            "no-sni",
+            "TYPE 22 v3.3 len=74",
+            "840219f7452a",
+            97
+          ],
+          [
+            "bad-ext",
+            "TYPE 22 v3.3 len=74",
+            "990860a50feb",
+            83
+          ]
+        ],
+        "http_fp": [
+          [
+            "HEAD-odd-host",
+            "HTTP/1.1 400 Bad Request",
+            "cloudflare",
+            "155",
+            "",
+            114
+          ],
+          [
+            "HEAD-norm",
+            "HTTP/1.1 301 Moved Permanently",
+            "cloudflare",
+            "https://go88.com/robots.txt",
+            "",
+            92
+          ],
+          [
+            "HEAD-bust",
+            "HTTP/1.1 301 Moved Permanently",
+            "cloudflare",
+            "https://go88.com/robots.txt?_=1756846010",
+            "",
+            80
+          ]
+        ],
+        "http_extreme_fp": [
+          [
+            "double-cl",
+            "HTTP/1.1 400 Bad Request  Server: cloudflare  Date: Tue, 02 Sep 2025 20:46:49 GMT  Content-Type: text/html  Content-Leng",
+            116
+          ],
+          [
+            "lf-only",
+            "HTTP/1.1 301 Moved Permanently  Date: Tue, 02 Sep 2025 20:46:49 GMT  Content-Type: text/html  Content-Length: 167  Conne",
+            95
+          ],
+          [
+            "bad-te",
+            "HTTP/1.1 400 Bad Request  Server: cloudflare  Date: Tue, 02 Sep 2025 20:46:49 GMT  Content-Type: text/html  Content-Leng",
+            97
+          ],
+          [
+            "http-1.0",
+            "HTTP/1.1 301 Moved Permanently  Date: Tue, 02 Sep 2025 20:46:49 GMT  Content-Type: text/html  Content-Length: 167  Conne",
+            88
+          ]
+        ],
+        "smart_detection": {
+          "22": {
+            "port": 22,
+            "service": "unknown",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": false
+          },
+          "22000": {
+            "port": 22000,
+            "service": "ssh",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": true
+          },
+          "80": {
+            "port": 80,
+            "service": "http",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": false
+          },
+          "443": {
+            "port": 443,
+            "service": "https",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": true,
+            "is_protected": false
+          },
+          "2222": {
+            "port": 2222,
+            "service": "ssh",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": true
+          },
+          "15000": {
+            "port": 15000,
+            "service": "unknown",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": false
+          },
+          "8000": {
+            "port": 8000,
+            "service": "http-alt",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": false
+          },
+          "3389": {
+            "port": 3389,
+            "service": "rdp",
+            "is_tls": false,
+            "banner": null,
+            "needs_https": false,
+            "is_protected": true
+          }
+        }
+      }
+    },
+    "proto_norm_diff_survey": {
+      "success": true,
+      "duration_ms": 228,
+      "error": null,
+      "data": {
+        "survey": {
+          "alpn": null,
+          "tls_version": null,
+          "cipher": null,
+          "alt_svc": null,
+          "server": "cloudflare",
+          "h2_supported": true,
+          "h3_advertised": false
+        }
+      }
+    },
+    "ec_quick_probe": {
+      "success": true,
+      "duration_ms": 0,
+      "error": null,
+      "data": {
+        "ec_suspected": false,
+        "indicators": [],
+        "source": "unknown"
+      }
+    },
+    "certificate_attacks": {
+      "success": true,
+      "duration_ms": 670752,
+      "error": null,
+      "data": {
+        "target": "go88.com:443",
+        "timestamp": "2025-09-03 04:47:00",
+        "attacks": {
+          "tsx": {
+            "attack_mode": "automated",
+            "san_domains_found": 1,
+            "weak_doors": 1,
+            "strong_doors": 2,
+            "combinations_tested": 2,
+            "successful_bypasses": [],
+            "best_result": null,
+            "success": false
+          },
+          "mtls_leak": {
+            "proxy_detected": false,
+            "proxy_confidence": 0.25,
+            "vulnerable_headers": 0,
+            "header_details": [],
+            "total_tests": 6
+          },
+          "proxy_cert_bypass": {
+            "critical_bypasses": 0,
+            "bypass_details": [],
+            "total_tests": 0
+          },
+          "cdn_cert_analysis": {
+            "mismatches": 0,
+            "vulnerabilities": 1,
+            "routing_issues": 0,
+            "mismatch_details": [],
+            "vulnerability_details": [
+              {
+                "type": "self_signed_certificate",
+                "certificate": "origin",
+                "risk": "potential_mitm",
+                "severity": "info",
+                "classification": "informational"
+              }
+            ]
+          },
+          "cert_timing_analysis": {
+            "status": "INCONCLUSIVE",
+            "reason": "avg_time unavailable; downgraded to inconclusive"
+          },
+          "cert_chain_bypass": {
+            "status": "Skipped",
+            "classification": "informational",
+            "evidence": "Client-side cannot validate server-side certificate-chain acceptance; requires server policy access.",
+            "vulnerability": false
+          },
+          "nginx_cert_vulns": {
+            "nginx_version": null,
+            "total_vulnerabilities": 1,
+            "total_misconfigurations": 0,
+            "total_ssl_issues": 1,
+            "high_severity_count": 0,
+            "critical_findings": [],
+            "ssl_variable_leaks": []
+          },
+          "http2_minimal": {
+            "supported": false,
+            "evidence": {
+              "h2_supported": true,
+              "status_code": 301,
+              "response_time_ms": 146.3782999999239,
+              "diagnostic": {
+                "ssl_handshake": true,
+                "alpn_offered": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "alpn_selected": "h2",
+                "tls_version": null,
+                "cipher_suite": null,
+                "connection_attempts": 1,
+                "httpx_implementation": true
+              },
+              "error": null
+            }
+          },
+          "wasm_analysis": {
+            "runtime_detection": {
+              "wasm_detected": true,
+              "runtime_type": "Possible_Wasm_Support",
+              "confidence_score": 35,
+              "detection_methods": [
+                "Error_Analysis",
+                "Content_Types"
+              ],
+              "runtime_features": [
+                {
+                  "path": "/wasm",
+                  "patterns": [
+                    "wasm"
+                  ],
+                  "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:57 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:57 GM"
+                },
+                {
+                  "path": "/.wasm",
+                  "patterns": [
+                    "wasm"
+                  ],
+                  "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:57 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:57 GM"
+                },
+                {
+                  "path": "/webassembly",
+                  "patterns": [
+                    "webassembly"
+                  ],
+                  "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:58 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:58 GM"
+                },
+                {
+                  "path": "/plugins",
+                  "patterns": [
+                    "plugin"
+                  ],
+                  "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:58 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:58 GM"
+                },
+                "application/wasm",
+                "application/webassembly",
+                "application/wasm+json"
+              ],
+              "version_info": {}
+            },
+            "plugin_analysis": {
+              "plugin_discovery": {
+                "discovered_plugins": [],
+                "plugin_endpoints": [],
+                "plugin_metadata": {},
+                "discovery_methods": []
+              },
+              "lifecycle_analysis": {
+                "initialization_timing": {
+                  "cold_start_avg": 218.67959999993522,
+                  "warm_start_avg": 221.83676666645624,
+                  "startup_ratio": 0.9857680639960462,
+                  "initialization_overhead": false,
+                  "cold_start_samples": [
+                    206.99710000008054,
+                    223.42220000064117,
+                    225.61949999908393
+                  ],
+                  "warm_start_samples": [
+                    228.41340000013588,
+                    233.8873999997304,
+                    203.20949999950244
+                  ]
+                },
+                "load_unload_behavior": {
+                  "load_endpoints_tested": 2,
+                  "load_test_results": [
+                    {
+                      "endpoint": "/admin/plugins/load",
+                      "response_status": "HTTP/1.1 301 Moved Permanently",
+                      "accessible": true,
+                      "reload_supported": true
+                    },
+                    {
+                      "endpoint": "/api/plugins/reload",
+                      "response_status": "HTTP/1.1 301 Moved Permanently",
+                      "accessible": true,
+                      "reload_supported": true
+                    }
+                  ],
+                  "reload_capability": true
+                },
+                "state_persistence": {
+                  "state_persistence_supported": false,
+                  "set_operation": {
+                    "success": false,
+                    "endpoints_tried": 4
+                  },
+                  "reason": "Could not set initial state"
+                },
+                "reload_mechanisms": {
+                  "hot_reload_supported": false,
+                  "graceful_restart": false,
+                  "zero_downtime": false,
+                  "reload_endpoints": []
+                }
+              },
+              "communication_channels": {
+                "inter_plugin_channels": [],
+                "shared_memory_access": false,
+                "message_passing": false,
+                "communication_security": {}
+              },
+              "configuration_security": {
+                "config_injection_vulnerable": false,
+                "unauthorized_config_access": false,
+                "config_validation_bypass": false,
+                "sensitive_config_exposed": false
+              },
+              "plugin_isolation": {
+                "process_isolation": true,
+                "memory_isolation": false,
+                "filesystem_isolation": false,
+                "network_isolation": false
+              }
+            },
+            "sandbox_security": {
+              "sandbox_escape_attempts": {
+                "memory_corruption_attempts": [
+                  {
+                    "name": "stack_overflow",
+                    "type": "buffer_overflow",
+                    "success": false,
+                    "blocked_by_sandbox": false,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                    "payload_size": 2048
+                  },
+                  {
+                    "name": "heap_overflow",
+                    "type": "heap_overflow",
+                    "success": false,
+                    "blocked_by_sandbox": false,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                    "payload_size": 4096
+                  },
+                  {
+                    "name": "format_string",
+                    "type": "format_string",
+                    "success": false,
+                    "blocked_by_sandbox": false,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                    "payload_size": 200
+                  },
+                  {
+                    "name": "integer_overflow",
+                    "type": "integer_overflow",
+                    "success": false,
+                    "blocked_by_sandbox": false,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                    "payload_size": 8
+                  }
+                ],
+                "control_flow_hijack_attempts": [
+                  {
+                    "name": "rop_chain",
+                    "success": false,
+                    "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                  },
+                  {
+                    "name": "jop_gadget",
+                    "success": false,
+                    "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                  },
+                  {
+                    "name": "ret2libc",
+                    "success": false,
+                    "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                  }
+                ],
+                "system_call_escape_attempts": [
+                  {
+                    "name": "file_access",
+                    "syscall": "open",
+                    "success": false,
+                    "blocked": false
+                  },
+                  {
+                    "name": "network_access",
+                    "syscall": "socket",
+                    "success": false,
+                    "blocked": false
+                  },
+                  {
+                    "name": "process_spawn",
+                    "syscall": "execve",
+                    "success": false,
+                    "blocked": false
+                  }
+                ],
+                "successful_escapes": 0
+              },
+              "capability_restrictions": {
+                "file_system_access": false,
+                "network_access": false,
+                "system_info_access": false,
+                "restricted_operations": []
+              },
+              "resource_limitations": {
+                "memory_limit_enforced": false,
+                "cpu_limit_enforced": false,
+                "execution_time_limited": true
+              },
+              "api_access_controls": {
+                "unauthorized_api_access": false,
+                "privilege_escalation": false,
+                "api_endpoint_enumeration": [],
+                "accessible_apis": []
+              }
+            },
+            "memory_safety": {
+              "buffer_overflow_protection": {
+                "tests": [
+                  {
+                    "endpoint": "/api/buffer/test",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:20 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/buffer/test",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/buffer/test",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/buffer/test",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/buffer/test",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/execute",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/execute",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/execute",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/execute",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/execute",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/wasm/execute",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/wasm/execute",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/wasm/execute",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/wasm/execute",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/wasm/execute",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:29 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/plugins/echo",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:29 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:30 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/plugins/echo",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:30 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/plugins/echo",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/plugins/echo",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/plugins/echo",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/envoy/wasm",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/envoy/wasm",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/envoy/wasm",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/envoy/wasm",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/envoy/wasm",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/run",
+                    "size": 1024,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/run",
+                    "size": 2048,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/run",
+                    "size": 4096,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/run",
+                    "size": 8192,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  },
+                  {
+                    "endpoint": "/api/wasm/run",
+                    "size": 16384,
+                    "status": "INCONCLUSIVE",
+                    "protection_active": false,
+                    "overflow_detected": false,
+                    "http_status": 301,
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:38 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                    "octet_probe": {
+                      "http_status": 301,
+                      "protection_active": false,
+                      "crashy": false,
+                      "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:38 GMT\r\nContent-Type: text/html\r\nConten"
+                    },
+                    "service_stable": true,
+                    "reason": "Unexpected HTTP status: 301"
+                  }
+                ],
+                "protection_level": "INCONCLUSIVE",
+                "assessment_reason": "Buffer endpoints not accessible (30/30 inconclusive)",
+                "tested_count": 0,
+                "inconclusive_count": 30
+              },
+              "use_after_free_detection": {
+                "status": "INCONCLUSIVE",
+                "reason": "Unexpected HTTP status: 301",
+                "vulnerable": false
+              },
+              "double_free_detection": {
+                "status": "INCONCLUSIVE",
+                "reason": "Unexpected HTTP status: 301",
+                "vulnerable": false
+              },
+              "memory_leak_assessment": {
+                "memory_leak_suspected": false,
+                "test_results": [
+                  {
+                    "iteration": 0,
+                    "response_time": 125.7101999999577,
+                    "memory_allocated": "Failed"
+                  },
+                  {
+                    "iteration": 1,
+                    "response_time": 126.377999999022,
+                    "memory_allocated": "Failed"
+                  },
+                  {
+                    "iteration": 2,
+                    "response_time": 123.13030000041181,
+                    "memory_allocated": "Failed"
+                  },
+                  {
+                    "iteration": 3,
+                    "response_time": 131.27369999892835,
+                    "memory_allocated": "Failed"
+                  },
+                  {
+                    "iteration": 4,
+                    "response_time": 125.24029999985942,
+                    "memory_allocated": "Failed"
+                  }
+                ],
+                "time_trend": 0
+              },
+              "overall_protection": "INCONCLUSIVE",
+              "protection_reason": "Memory safety APIs not accessible for testing"
+            },
+            "injection_vectors": {
+              "code_injection": {
+                "status": "OK",
+                "vulnerability_detected": false,
+                "injection_points": []
+              },
+              "data_injection": {
+                "status": "OK",
+                "vulnerability_detected": false,
+                "injection_points": []
+              },
+              "configuration_injection": {
+                "status": "OK",
+                "config_tampering": false,
+                "writable": [],
+                "exposed": [
+                  {
+                    "endpoint": "/runtime/config",
+                    "length": 464
+                  },
+                  {
+                    "endpoint": "/plugins/config",
+                    "length": 464
+                  },
+                  {
+                    "endpoint": "/wasm/config",
+                    "length": 461
+                  }
+                ]
+              },
+              "memory_injection": {
+                "status": "OK",
+                "memory_corruption": true,
+                "triggers": [
+                  {
+                    "endpoint": "/wasm/load_module",
+                    "vector": "oversized_header",
+                    "preview": "http/1.1 301 moved permanently\r\ndate: tue, 02 sep 2025 20:57:51 gmt\r\ncontent-type: text/html\r\ncontent-length: 167\r\nconnection: close\r\ncache-control: max-age=360"
+                  }
+                ]
+              }
+            },
+            "timing_attacks": {
+              "attack_vectors": [
+                {
+                  "attack_type": "compilation_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 0,
+                  "samples_first": [
+                    238.26440000084403,
+                    217.42930000073102,
+                    221.86529999999038
+                  ],
+                  "samples_cached": [
+                    227.43410000111908,
+                    219.85339999991993,
+                    204.11860000058368,
+                    226.8253000002005,
+                    234.07380000026023
+                  ],
+                  "mean_first_ms": 225.85,
+                  "mean_cached_ms": 222.46,
+                  "ratio": 1.02
+                },
+                {
+                  "attack_type": "execution_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 0,
+                  "mean_simple_ms": 222.44,
+                  "mean_complex_ms": 218.56,
+                  "ratio": 0.98
+                },
+                {
+                  "attack_type": "memory_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 20,
+                  "measurements": [
+                    [
+                      0,
+                      132.75
+                    ],
+                    [
+                      128,
+                      127.79
+                    ],
+                    [
+                      2048,
+                      57.21
+                    ],
+                    [
+                      8192,
+                      68.22
+                    ]
+                  ]
+                },
+                {
+                  "attack_type": "plugin_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 1,
+                  "baseline_ms": 212.64,
+                  "trigger_ms": 219.09,
+                  "ratio": 1.03
+                },
+                {
+                  "attack_type": "gc_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 10,
+                  "samples_ms": [
+                    221.67,
+                    222.74,
+                    237.42,
+                    240.37,
+                    208.6,
+                    207.2
+                  ],
+                  "drift_ms": 33.18
+                },
+                {
+                  "attack_type": "contention_timing",
+                  "status": "OK",
+                  "exploitable": false,
+                  "confidence": 15,
+                  "mean_ms": 255.63,
+                  "p95_ms": 270.44,
+                  "samples_ms": [
+                    231.11,
+                    234.07,
+                    255.79,
+                    267.84,
+                    244.6,
+                    270.44,
+                    272.55,
+                    268.66
+                  ]
+                }
+              ],
+              "confidence_score": 0,
+              "exploitable_attacks": []
+            },
+            "overall_assessment": {
+              "security_score": 100,
+              "risk_level": "LOW",
+              "critical_vulnerabilities": [],
+              "recommendations": [
+                "Regular security updates for Wasm runtime",
+                "Implement comprehensive logging and monitoring",
+                "Consider additional access controls"
+              ],
+              "attack_vectors": [],
+              "inconclusive_tests": [
+                "Memory safety: Memory safety APIs not accessible for testing"
+              ]
+            },
+            "local_wasm_execution": {
+              "status": "SKIPPED",
+              "reason": "No --local-wasm provided"
+            },
+            "analysis_posture": "intelligent",
+            "analysis_reason": "INTELLIGENT mode: Low confidence (35%) - performing targeted verification",
+            "full_analysis_executed": true
+          },
+          "architecture_analysis": {
+            "architecture_type": "Unknown",
+            "confidence": 0.0,
+            "classification": "informational",
+            "security_implications": [],
+            "wasm_detected": false,
+            "security_score": 100,
+            "risk_level": "LOW",
+            "raw_analysis": {
+              "runtime_detection": {
+                "wasm_detected": true,
+                "runtime_type": "Possible_Wasm_Support",
+                "confidence_score": 35,
+                "detection_methods": [
+                  "Error_Analysis",
+                  "Content_Types"
+                ],
+                "runtime_features": [
+                  {
+                    "path": "/wasm",
+                    "patterns": [
+                      "wasm"
+                    ],
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:57 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:57 GM"
+                  },
+                  {
+                    "path": "/.wasm",
+                    "patterns": [
+                      "wasm"
+                    ],
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:57 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:57 GM"
+                  },
+                  {
+                    "path": "/webassembly",
+                    "patterns": [
+                      "webassembly"
+                    ],
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:58 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:58 GM"
+                  },
+                  {
+                    "path": "/plugins",
+                    "patterns": [
+                      "plugin"
+                    ],
+                    "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:56:58 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:56:58 GM"
+                  },
+                  "application/wasm",
+                  "application/webassembly",
+                  "application/wasm+json"
+                ],
+                "version_info": {}
+              },
+              "plugin_analysis": {
+                "plugin_discovery": {
+                  "discovered_plugins": [],
+                  "plugin_endpoints": [],
+                  "plugin_metadata": {},
+                  "discovery_methods": []
+                },
+                "lifecycle_analysis": {
+                  "initialization_timing": {
+                    "cold_start_avg": 218.67959999993522,
+                    "warm_start_avg": 221.83676666645624,
+                    "startup_ratio": 0.9857680639960462,
+                    "initialization_overhead": false,
+                    "cold_start_samples": [
+                      206.99710000008054,
+                      223.42220000064117,
+                      225.61949999908393
+                    ],
+                    "warm_start_samples": [
+                      228.41340000013588,
+                      233.8873999997304,
+                      203.20949999950244
+                    ]
+                  },
+                  "load_unload_behavior": {
+                    "load_endpoints_tested": 2,
+                    "load_test_results": [
+                      {
+                        "endpoint": "/admin/plugins/load",
+                        "response_status": "HTTP/1.1 301 Moved Permanently",
+                        "accessible": true,
+                        "reload_supported": true
+                      },
+                      {
+                        "endpoint": "/api/plugins/reload",
+                        "response_status": "HTTP/1.1 301 Moved Permanently",
+                        "accessible": true,
+                        "reload_supported": true
+                      }
+                    ],
+                    "reload_capability": true
+                  },
+                  "state_persistence": {
+                    "state_persistence_supported": false,
+                    "set_operation": {
+                      "success": false,
+                      "endpoints_tried": 4
+                    },
+                    "reason": "Could not set initial state"
+                  },
+                  "reload_mechanisms": {
+                    "hot_reload_supported": false,
+                    "graceful_restart": false,
+                    "zero_downtime": false,
+                    "reload_endpoints": []
+                  }
+                },
+                "communication_channels": {
+                  "inter_plugin_channels": [],
+                  "shared_memory_access": false,
+                  "message_passing": false,
+                  "communication_security": {}
+                },
+                "configuration_security": {
+                  "config_injection_vulnerable": false,
+                  "unauthorized_config_access": false,
+                  "config_validation_bypass": false,
+                  "sensitive_config_exposed": false
+                },
+                "plugin_isolation": {
+                  "process_isolation": true,
+                  "memory_isolation": false,
+                  "filesystem_isolation": false,
+                  "network_isolation": false
+                }
+              },
+              "sandbox_security": {
+                "sandbox_escape_attempts": {
+                  "memory_corruption_attempts": [
+                    {
+                      "name": "stack_overflow",
+                      "type": "buffer_overflow",
+                      "success": false,
+                      "blocked_by_sandbox": false,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                      "payload_size": 2048
+                    },
+                    {
+                      "name": "heap_overflow",
+                      "type": "heap_overflow",
+                      "success": false,
+                      "blocked_by_sandbox": false,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                      "payload_size": 4096
+                    },
+                    {
+                      "name": "format_string",
+                      "type": "format_string",
+                      "success": false,
+                      "blocked_by_sandbox": false,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                      "payload_size": 200
+                    },
+                    {
+                      "name": "integer_overflow",
+                      "type": "integer_overflow",
+                      "success": false,
+                      "blocked_by_sandbox": false,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:57:15 GM",
+                      "payload_size": 8
+                    }
+                  ],
+                  "control_flow_hijack_attempts": [
+                    {
+                      "name": "rop_chain",
+                      "success": false,
+                      "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                    },
+                    {
+                      "name": "jop_gadget",
+                      "success": false,
+                      "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                    },
+                    {
+                      "name": "ret2libc",
+                      "success": false,
+                      "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+                    }
+                  ],
+                  "system_call_escape_attempts": [
+                    {
+                      "name": "file_access",
+                      "syscall": "open",
+                      "success": false,
+                      "blocked": false
+                    },
+                    {
+                      "name": "network_access",
+                      "syscall": "socket",
+                      "success": false,
+                      "blocked": false
+                    },
+                    {
+                      "name": "process_spawn",
+                      "syscall": "execve",
+                      "success": false,
+                      "blocked": false
+                    }
+                  ],
+                  "successful_escapes": 0
+                },
+                "capability_restrictions": {
+                  "file_system_access": false,
+                  "network_access": false,
+                  "system_info_access": false,
+                  "restricted_operations": []
+                },
+                "resource_limitations": {
+                  "memory_limit_enforced": false,
+                  "cpu_limit_enforced": false,
+                  "execution_time_limited": true
+                },
+                "api_access_controls": {
+                  "unauthorized_api_access": false,
+                  "privilege_escalation": false,
+                  "api_endpoint_enumeration": [],
+                  "accessible_apis": []
+                }
+              },
+              "memory_safety": {
+                "buffer_overflow_protection": {
+                  "tests": [
+                    {
+                      "endpoint": "/api/buffer/test",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:20 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/buffer/test",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:21 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/buffer/test",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/buffer/test",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/buffer/test",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/execute",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/execute",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/execute",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:24 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/execute",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:25 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/execute",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/wasm/execute",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:26 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/wasm/execute",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/wasm/execute",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:27 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/wasm/execute",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/wasm/execute",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:28 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:29 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/plugins/echo",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:29 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:30 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/plugins/echo",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:30 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/plugins/echo",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/plugins/echo",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:31 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/plugins/echo",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:32 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/envoy/wasm",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/envoy/wasm",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:33 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/envoy/wasm",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/envoy/wasm",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:34 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/envoy/wasm",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/run",
+                      "size": 1024,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:35 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/run",
+                      "size": 2048,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:36 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/run",
+                      "size": 4096,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/run",
+                      "size": 8192,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:37 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    },
+                    {
+                      "endpoint": "/api/wasm/run",
+                      "size": 16384,
+                      "status": "INCONCLUSIVE",
+                      "protection_active": false,
+                      "overflow_detected": false,
+                      "http_status": 301,
+                      "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:38 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                      "octet_probe": {
+                        "http_status": 301,
+                        "protection_active": false,
+                        "crashy": false,
+                        "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:57:38 GMT\r\nContent-Type: text/html\r\nConten"
+                      },
+                      "service_stable": true,
+                      "reason": "Unexpected HTTP status: 301"
+                    }
+                  ],
+                  "protection_level": "INCONCLUSIVE",
+                  "assessment_reason": "Buffer endpoints not accessible (30/30 inconclusive)",
+                  "tested_count": 0,
+                  "inconclusive_count": 30
+                },
+                "use_after_free_detection": {
+                  "status": "INCONCLUSIVE",
+                  "reason": "Unexpected HTTP status: 301",
+                  "vulnerable": false
+                },
+                "double_free_detection": {
+                  "status": "INCONCLUSIVE",
+                  "reason": "Unexpected HTTP status: 301",
+                  "vulnerable": false
+                },
+                "memory_leak_assessment": {
+                  "memory_leak_suspected": false,
+                  "test_results": [
+                    {
+                      "iteration": 0,
+                      "response_time": 125.7101999999577,
+                      "memory_allocated": "Failed"
+                    },
+                    {
+                      "iteration": 1,
+                      "response_time": 126.377999999022,
+                      "memory_allocated": "Failed"
+                    },
+                    {
+                      "iteration": 2,
+                      "response_time": 123.13030000041181,
+                      "memory_allocated": "Failed"
+                    },
+                    {
+                      "iteration": 3,
+                      "response_time": 131.27369999892835,
+                      "memory_allocated": "Failed"
+                    },
+                    {
+                      "iteration": 4,
+                      "response_time": 125.24029999985942,
+                      "memory_allocated": "Failed"
+                    }
+                  ],
+                  "time_trend": 0
+                },
+                "overall_protection": "INCONCLUSIVE",
+                "protection_reason": "Memory safety APIs not accessible for testing"
+              },
+              "injection_vectors": {
+                "code_injection": {
+                  "status": "OK",
+                  "vulnerability_detected": false,
+                  "injection_points": []
+                },
+                "data_injection": {
+                  "status": "OK",
+                  "vulnerability_detected": false,
+                  "injection_points": []
+                },
+                "configuration_injection": {
+                  "status": "OK",
+                  "config_tampering": false,
+                  "writable": [],
+                  "exposed": [
+                    {
+                      "endpoint": "/runtime/config",
+                      "length": 464
+                    },
+                    {
+                      "endpoint": "/plugins/config",
+                      "length": 464
+                    },
+                    {
+                      "endpoint": "/wasm/config",
+                      "length": 461
+                    }
+                  ]
+                },
+                "memory_injection": {
+                  "status": "OK",
+                  "memory_corruption": true,
+                  "triggers": [
+                    {
+                      "endpoint": "/wasm/load_module",
+                      "vector": "oversized_header",
+                      "preview": "http/1.1 301 moved permanently\r\ndate: tue, 02 sep 2025 20:57:51 gmt\r\ncontent-type: text/html\r\ncontent-length: 167\r\nconnection: close\r\ncache-control: max-age=360"
+                    }
+                  ]
+                }
+              },
+              "timing_attacks": {
+                "attack_vectors": [
+                  {
+                    "attack_type": "compilation_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 0,
+                    "samples_first": [
+                      238.26440000084403,
+                      217.42930000073102,
+                      221.86529999999038
+                    ],
+                    "samples_cached": [
+                      227.43410000111908,
+                      219.85339999991993,
+                      204.11860000058368,
+                      226.8253000002005,
+                      234.07380000026023
+                    ],
+                    "mean_first_ms": 225.85,
+                    "mean_cached_ms": 222.46,
+                    "ratio": 1.02
+                  },
+                  {
+                    "attack_type": "execution_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 0,
+                    "mean_simple_ms": 222.44,
+                    "mean_complex_ms": 218.56,
+                    "ratio": 0.98
+                  },
+                  {
+                    "attack_type": "memory_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 20,
+                    "measurements": [
+                      [
+                        0,
+                        132.75
+                      ],
+                      [
+                        128,
+                        127.79
+                      ],
+                      [
+                        2048,
+                        57.21
+                      ],
+                      [
+                        8192,
+                        68.22
+                      ]
+                    ]
+                  },
+                  {
+                    "attack_type": "plugin_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 1,
+                    "baseline_ms": 212.64,
+                    "trigger_ms": 219.09,
+                    "ratio": 1.03
+                  },
+                  {
+                    "attack_type": "gc_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 10,
+                    "samples_ms": [
+                      221.67,
+                      222.74,
+                      237.42,
+                      240.37,
+                      208.6,
+                      207.2
+                    ],
+                    "drift_ms": 33.18
+                  },
+                  {
+                    "attack_type": "contention_timing",
+                    "status": "OK",
+                    "exploitable": false,
+                    "confidence": 15,
+                    "mean_ms": 255.63,
+                    "p95_ms": 270.44,
+                    "samples_ms": [
+                      231.11,
+                      234.07,
+                      255.79,
+                      267.84,
+                      244.6,
+                      270.44,
+                      272.55,
+                      268.66
+                    ]
+                  }
+                ],
+                "confidence_score": 0,
+                "exploitable_attacks": []
+              },
+              "overall_assessment": {
+                "security_score": 100,
+                "risk_level": "LOW",
+                "critical_vulnerabilities": [],
+                "recommendations": [
+                  "Regular security updates for Wasm runtime",
+                  "Implement comprehensive logging and monitoring",
+                  "Consider additional access controls"
+                ],
+                "attack_vectors": [],
+                "inconclusive_tests": [
+                  "Memory safety: Memory safety APIs not accessible for testing"
+                ]
+              },
+              "local_wasm_execution": {
+                "status": "SKIPPED",
+                "reason": "No --local-wasm provided"
+              },
+              "analysis_posture": "intelligent",
+              "analysis_reason": "INTELLIGENT mode: Low confidence (35%) - performing targeted verification",
+              "full_analysis_executed": true
+            }
+          },
+          "ocsp_soft_fail": {
+            "status": "Info",
+            "classification": "informational",
+            "evidence": "OCSP responder reachable (client-side check only)",
+            "ocsp_url": "http://o.pki.goog/s/we1/UgQ",
+            "vulnerability": false
+          },
+          "ec_certificate": {
+            "attacks_performed": [
+              "invalid_curve_point",
+              "invalid_curve_point",
+              "invalid_curve_point",
+              "small_subgroup",
+              "nonce_bias_analysis"
+            ],
+            "vulnerabilities_found": [],
+            "total_tests": 5,
+            "critical_findings": [],
+            "evidence_records": [
+              {
+                "type": "invalid_curve_point",
+                "point": "(0x6b17d1f2e12c42..., 0x4fe342e2fe1a7f...)",
+                "on_curve": false,
+                "local_ecdh": {
+                  "attempted": false
+                },
+                "tls_injection": {
+                  "accepted": false,
+                  "evidence": "No encrypted follow-up or wrong group"
+                }
+              },
+              {
+                "type": "invalid_curve_point",
+                "point": "(0xffffffff000000..., 0xffffffff000000...)",
+                "on_curve": false,
+                "local_ecdh": {
+                  "attempted": false
+                },
+                "tls_injection": {
+                  "accepted": false,
+                  "evidence": "No encrypted follow-up or wrong group"
+                }
+              }
+            ]
+          },
+          "malicious_cert_spectrum": {
+            "tested_methods": [
+              "extreme_cert",
+              "unicode_confusion",
+              "extension_overflow",
+              "time_confusion",
+              "weak_signature",
+              "critical_extension_bypass",
+              "wildcard_confusion",
+              "ct_bypass",
+              "cross_signed_leaf",
+              "weak_ec_p256",
+              "weak_ec_p192",
+              "weak_ec_secp256k1",
+              "invalid_ec_point",
+              "ecdsa_nonce_bias",
+              "sct_embedded",
+              "san_explosion"
+            ],
+            "vulnerabilities_found": [],
+            "security_assessment": {
+              "total_tested": 16,
+              "vulnerabilities_found": 0,
+              "security_score": 100.0,
+              "risk_level": "LOW"
+            }
+          }
+        }
+      }
+    },
+    "ocsp_validation": {
+      "success": true,
+      "duration_ms": 0,
+      "error": null,
+      "data": {
+        "skipped": true,
+        "reason": "import failed: invalid syntax (ocsp_validator.py, line 506)"
+      }
+    },
+    "xds_quick_probe": {
+      "success": true,
+      "duration_ms": 23,
+      "error": null,
+      "data": {
+        "skipped": true,
+        "reason": "'XDSProtocolAnalyzer' object has no attribute 'quick_probe'"
+      }
+    },
+    "wasm_runtime": {
+      "success": true,
+      "duration_ms": 41351,
+      "error": null,
+      "data": {
+        "runtime_detection": {
+          "wasm_detected": true,
+          "runtime_type": "Possible_Wasm_Support",
+          "confidence_score": 35,
+          "detection_methods": [
+            "Error_Analysis",
+            "Content_Types"
+          ],
+          "runtime_features": [
+            {
+              "path": "/wasm",
+              "patterns": [
+                "wasm"
+              ],
+              "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:01 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:01 GM"
+            },
+            {
+              "path": "/.wasm",
+              "patterns": [
+                "wasm"
+              ],
+              "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:01 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:01 GM"
+            },
+            {
+              "path": "/webassembly",
+              "patterns": [
+                "webassembly"
+              ],
+              "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:01 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:01 GM"
+            },
+            {
+              "path": "/plugins",
+              "patterns": [
+                "plugin"
+              ],
+              "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:02 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:02 GM"
+            },
+            "application/wasm",
+            "application/webassembly",
+            "application/wasm+json"
+          ],
+          "version_info": {}
+        },
+        "plugin_analysis": {
+          "plugin_discovery": {
+            "discovered_plugins": [],
+            "plugin_endpoints": [],
+            "plugin_metadata": {},
+            "discovery_methods": []
+          },
+          "lifecycle_analysis": {
+            "initialization_timing": {
+              "cold_start_avg": 88.152633333569,
+              "warm_start_avg": 87.38733333242028,
+              "startup_ratio": 1.0087575621313163,
+              "initialization_overhead": false,
+              "cold_start_samples": [
+                79.93449999958102,
+                96.80090000074415,
+                87.72250000038184
+              ],
+              "warm_start_samples": [
+                78.86899999903108,
+                84.34589999887976,
+                98.94709999935003
+              ]
+            },
+            "load_unload_behavior": {
+              "load_endpoints_tested": 2,
+              "load_test_results": [
+                {
+                  "endpoint": "/admin/plugins/load",
+                  "response_status": "HTTP/1.1 301 Moved Permanently",
+                  "accessible": true,
+                  "reload_supported": true
+                },
+                {
+                  "endpoint": "/api/plugins/reload",
+                  "response_status": "HTTP/1.1 301 Moved Permanently",
+                  "accessible": true,
+                  "reload_supported": true
+                }
+              ],
+              "reload_capability": true
+            },
+            "state_persistence": {
+              "state_persistence_supported": false,
+              "set_operation": {
+                "success": false,
+                "endpoints_tried": 4
+              },
+              "reason": "Could not set initial state"
+            },
+            "reload_mechanisms": {
+              "hot_reload_supported": false,
+              "graceful_restart": false,
+              "zero_downtime": false,
+              "reload_endpoints": []
+            }
+          },
+          "communication_channels": {
+            "inter_plugin_channels": [],
+            "shared_memory_access": false,
+            "message_passing": false,
+            "communication_security": {}
+          },
+          "configuration_security": {
+            "config_injection_vulnerable": false,
+            "unauthorized_config_access": false,
+            "config_validation_bypass": false,
+            "sensitive_config_exposed": false
+          },
+          "plugin_isolation": {
+            "process_isolation": true,
+            "memory_isolation": false,
+            "filesystem_isolation": false,
+            "network_isolation": false
+          }
+        },
+        "sandbox_security": {
+          "sandbox_escape_attempts": {
+            "memory_corruption_attempts": [
+              {
+                "name": "stack_overflow",
+                "type": "buffer_overflow",
+                "success": false,
+                "blocked_by_sandbox": false,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:12 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:12 GM",
+                "payload_size": 2048
+              },
+              {
+                "name": "heap_overflow",
+                "type": "heap_overflow",
+                "success": false,
+                "blocked_by_sandbox": false,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:12 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:12 GM",
+                "payload_size": 4096
+              },
+              {
+                "name": "format_string",
+                "type": "format_string",
+                "success": false,
+                "blocked_by_sandbox": false,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:13 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:13 GM",
+                "payload_size": 200
+              },
+              {
+                "name": "integer_overflow",
+                "type": "integer_overflow",
+                "success": false,
+                "blocked_by_sandbox": false,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:13 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: max-age=3600\r\nExpires: Tue, 02 Sep 2025 21:47:13 GM",
+                "payload_size": 8
+              }
+            ],
+            "control_flow_hijack_attempts": [
+              {
+                "name": "rop_chain",
+                "success": false,
+                "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:13 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+              },
+              {
+                "name": "jop_gadget",
+                "success": false,
+                "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:13 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+              },
+              {
+                "name": "ret2libc",
+                "success": false,
+                "response": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:13 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConnection: close\r\nCache-Control: m"
+              }
+            ],
+            "system_call_escape_attempts": [
+              {
+                "name": "file_access",
+                "syscall": "open",
+                "success": false,
+                "blocked": false
+              },
+              {
+                "name": "network_access",
+                "syscall": "socket",
+                "success": false,
+                "blocked": false
+              },
+              {
+                "name": "process_spawn",
+                "syscall": "execve",
+                "success": false,
+                "blocked": false
+              }
+            ],
+            "successful_escapes": 0
+          },
+          "capability_restrictions": {
+            "file_system_access": false,
+            "network_access": false,
+            "system_info_access": false,
+            "restricted_operations": []
+          },
+          "resource_limitations": {
+            "memory_limit_enforced": false,
+            "cpu_limit_enforced": true,
+            "execution_time_limited": true
+          },
+          "api_access_controls": {
+            "unauthorized_api_access": false,
+            "privilege_escalation": false,
+            "api_endpoint_enumeration": [],
+            "accessible_apis": []
+          }
+        },
+        "memory_safety": {
+          "buffer_overflow_protection": {
+            "tests": [
+              {
+                "endpoint": "/api/buffer/test",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/buffer/test",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/buffer/test",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/buffer/test",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:15 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/buffer/test",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/execute",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/execute",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:16 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/execute",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/execute",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/execute",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:17 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/wasm/execute",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/wasm/execute",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/wasm/execute",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/wasm/execute",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:18 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/wasm/execute",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/plugins/echo",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/plugins/echo",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/plugins/echo",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:19 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/plugins/echo",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/plugins/echo",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/envoy/wasm",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:20 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/envoy/wasm",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/envoy/wasm",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/envoy/wasm",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:21 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/envoy/wasm",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/run",
+                "size": 1024,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/run",
+                "size": 2048,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/run",
+                "size": 4096,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:22 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:23 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/run",
+                "size": 8192,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:23 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              },
+              {
+                "endpoint": "/api/wasm/run",
+                "size": 16384,
+                "status": "INCONCLUSIVE",
+                "protection_active": false,
+                "overflow_detected": false,
+                "http_status": 301,
+                "response_preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:23 GMT\r\nContent-Type: text/html\r\nContent-Length: 167\r\nConne",
+                "octet_probe": {
+                  "http_status": 301,
+                  "protection_active": false,
+                  "crashy": false,
+                  "preview": "HTTP/1.1 301 Moved Permanently\r\nDate: Tue, 02 Sep 2025 20:47:23 GMT\r\nContent-Type: text/html\r\nConten"
+                },
+                "service_stable": true,
+                "reason": "Unexpected HTTP status: 301"
+              }
+            ],
+            "protection_level": "INCONCLUSIVE",
+            "assessment_reason": "Buffer endpoints not accessible (30/30 inconclusive)",
+            "tested_count": 0,
+            "inconclusive_count": 30
+          },
+          "use_after_free_detection": {
+            "status": "INCONCLUSIVE",
+            "reason": "Unexpected HTTP status: 301",
+            "vulnerable": false
+          },
+          "double_free_detection": {
+            "status": "INCONCLUSIVE",
+            "reason": "Unexpected HTTP status: 301",
+            "vulnerable": false
+          },
+          "memory_leak_assessment": {
+            "memory_leak_suspected": false,
+            "test_results": [
+              {
+                "iteration": 0,
+                "response_time": 51.027900000917725,
+                "memory_allocated": "Failed"
+              },
+              {
+                "iteration": 1,
+                "response_time": 49.83469999933732,
+                "memory_allocated": "Failed"
+              },
+              {
+                "iteration": 2,
+                "response_time": 44.82850000022154,
+                "memory_allocated": "Failed"
+              },
+              {
+                "iteration": 3,
+                "response_time": 49.82529999870167,
+                "memory_allocated": "Failed"
+              },
+              {
+                "iteration": 4,
+                "response_time": 50.914399998873705,
+                "memory_allocated": "Failed"
+              }
+            ],
+            "time_trend": 0
+          },
+          "overall_protection": "INCONCLUSIVE",
+          "protection_reason": "Memory safety APIs not accessible for testing"
+        },
+        "injection_vectors": {
+          "code_injection": {
+            "status": "OK",
+            "vulnerability_detected": false,
+            "injection_points": []
+          },
+          "data_injection": {
+            "status": "OK",
+            "vulnerability_detected": false,
+            "injection_points": []
+          },
+          "configuration_injection": {
+            "status": "OK",
+            "config_tampering": false,
+            "writable": [],
+            "exposed": [
+              {
+                "endpoint": "/runtime/config",
+                "length": 465
+              },
+              {
+                "endpoint": "/plugins/config",
+                "length": 465
+              },
+              {
+                "endpoint": "/wasm/config",
+                "length": 462
+              }
+            ]
+          },
+          "memory_injection": {
+            "status": "OK",
+            "memory_corruption": true,
+            "triggers": [
+              {
+                "endpoint": "/api/wasm/execute",
+                "vector": "oversized_header",
+                "preview": "http/1.1 301 moved permanently\r\ndate: tue, 02 sep 2025 20:47:29 gmt\r\ncontent-type: text/html\r\ncontent-length: 167\r\nconnection: close\r\ncache-control: max-age=360"
+              },
+              {
+                "endpoint": "/wasm/load_module",
+                "vector": "oversized_header",
+                "preview": "http/1.1 301 moved permanently\r\ndate: tue, 02 sep 2025 20:47:32 gmt\r\ncontent-type: text/html\r\ncontent-length: 167\r\nconnection: close\r\ncache-control: max-age=360"
+              }
+            ]
+          }
+        },
+        "timing_attacks": {
+          "attack_vectors": [
+            {
+              "attack_type": "compilation_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 3,
+              "samples_first": [
+                85.68019999984244,
+                99.05629999957455,
+                101.5650999997888
+              ],
+              "samples_cached": [
+                91.91719999944326,
+                81.00639999975101,
+                77.58409999951255,
+                90.21020000000135,
+                107.06519999985176
+              ],
+              "mean_first_ms": 95.43,
+              "mean_cached_ms": 89.56,
+              "ratio": 1.07
+            },
+            {
+              "attack_type": "execution_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 0,
+              "mean_simple_ms": 91.34,
+              "mean_complex_ms": 88.57,
+              "ratio": 0.97
+            },
+            {
+              "attack_type": "memory_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 20,
+              "measurements": [
+                [
+                  0,
+                  47.79
+                ],
+                [
+                  128,
+                  57.78
+                ],
+                [
+                  2048,
+                  49.82
+                ],
+                [
+                  8192,
+                  55.86
+                ]
+              ]
+            },
+            {
+              "attack_type": "plugin_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 3,
+              "baseline_ms": 89.74,
+              "trigger_ms": 95.93,
+              "ratio": 1.07
+            },
+            {
+              "attack_type": "gc_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 10,
+              "samples_ms": [
+                79.86,
+                95.41,
+                92.36,
+                90.2,
+                87.09,
+                97.5
+              ],
+              "drift_ms": 17.64
+            },
+            {
+              "attack_type": "contention_timing",
+              "status": "OK",
+              "exploitable": false,
+              "confidence": 15,
+              "mean_ms": 104.59,
+              "p95_ms": 115.09,
+              "samples_ms": [
+                92.91,
+                116.66,
+                107.33,
+                101.5,
+                103.53,
+                100.63,
+                115.09,
+                99.05
+              ]
+            }
+          ],
+          "confidence_score": 0,
+          "exploitable_attacks": []
+        },
+        "overall_assessment": {
+          "security_score": 100,
+          "risk_level": "LOW",
+          "critical_vulnerabilities": [],
+          "recommendations": [
+            "Regular security updates for Wasm runtime",
+            "Implement comprehensive logging and monitoring",
+            "Consider additional access controls"
+          ],
+          "attack_vectors": [],
+          "inconclusive_tests": [
+            "Memory safety: Memory safety APIs not accessible for testing"
+          ]
+        },
+        "local_wasm_execution": {
+          "status": "SKIPPED",
+          "reason": "No --local-wasm provided"
+        },
+        "analysis_posture": "intelligent",
+        "analysis_reason": "INTELLIGENT mode: Low confidence (35%) - performing targeted verification",
+        "full_analysis_executed": true
+      }
+    },
+    "elliptic_curve_aoe": {
+      "success": true,
+      "duration_ms": 0,
+      "error": null,
+      "data": {
+        "skipped": true,
+        "reason": "no EC hints; fast profile"
+      }
+    },
+    "time_mch_first_door": {
+      "success": true,
+      "duration_ms": 1008,
+      "error": null,
+      "data": {
+        "result": false
+      }
+    },
+    "proto_norm_diff": {
+      "success": true,
+      "duration_ms": 5862,
+      "error": null,
+      "data": {
+        "host": "go88.com",
+        "port": 443,
+        "timestamp": "2025-09-03 04:47:06",
+        "graph_stats": {
+          "total_states": 28,
+          "total_transitions": 42,
+          "vulnerable_states": 0
+        },
+        "vulnerabilities": [],
+        "attack_paths": []
+      }
+    },
+    "h2_continuation": {
+      "success": true,
+      "duration_ms": 151,
+      "error": null,
+      "data": {
+        "http2_supported": true,
+        "status": "partial",
+        "note": "h2_cfs internal KeyError neutralized",
+        "error_suppressed": "'supported'"
+      }
+    },
+    "h2_cache_poisoning": {
+      "success": true,
+      "duration_ms": 1602,
+      "error": null,
+      "data": {
+        "target": "go88.com:443",
+        "timestamp": "2025-09-03 04:47:00",
+        "attacks": [
+          {
+            "attack_type": "web_cache_deception",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "header_based_cache_pollution",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "cookie_unkeyed_poisoning",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "redirect_cache_poisoning",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "query_param_keying_probe",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "cache_key_normalization_probe",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          },
+          {
+            "attack_type": "vary_split_observation",
+            "success": false,
+            "details": {},
+            "evidence": [],
+            "error": "'H2Client' object has no attribute '_build_settings_frame'"
+          }
+        ],
+        "connectivity": {
+          "h2": false,
+          "error": "'H2Client' object has no attribute '_build_settings_frame'"
+        },
+        "summary": {
+          "total_attacks": 7,
+          "successful": 0,
+          "techniques": [],
+          "recommendations": [
+            "Keep monitoring cache headers and origin behavior",
+            "Ensure strict cache key construction, and disable caching of user-controlled inputs"
+          ]
+        }
+      }
+    },
+    "grpc_trailer_poisoning": {
+      "success": true,
+      "duration_ms": 1226565,
+      "error": null,
+      "data": {
+        "target": "go88.com:443",
+        "timestamp": "2025-09-03T04:47:00.895013",
+        "attacks": {
+          "service_discovery": {
+            "discovery_methods": [
+              {
+                "method": "grpc_reflection",
+                "available": false,
+                "response": null
+              }
+            ],
+            "endpoints_found": [
+              "/grpc.reflection.v1alpha.ServerReflection/ServerReflectionInfo",
+              "/grpc.health.v1.Health/Check",
+              "/api.AuthService/Login",
+              "/api.UserService/GetUser",
+              "/api.AdminService/GetUsers",
+              "/api.FileService/Upload",
+              "/api.NotificationService/Send"
+            ],
+            "reflection_available": false,
+            "web_interface_found": true
+          },
+          "auth_trailer_injection": {
+            "attack_vectors": [
+              "AttackResult(attack_type='Authentication Trailer Injection', target_endpoint='jwt_token_trailer_injection', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=1298.6811000009766, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Authentication Trailer Injection', target_endpoint='session_cookie_trailer_smuggling', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=15455.44130000053, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Authentication Trailer Injection', target_endpoint='api_key_trailer_override', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=924.8812999994698, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Authentication Trailer Injection', target_endpoint='oauth_token_trailer_elevation', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=15492.769799999223, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 4,
+            "successful_bypasses": 0,
+            "vulnerabilities": []
+          },
+          "cache_trailer_poisoning": {
+            "poisoning_tests": [
+              "AttackResult(attack_type='Cache Poisoning', target_endpoint='/api.UserService/GetProfile', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Cache Poisoning', target_endpoint='/api.ContentService/GetContent', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Cache Poisoning', target_endpoint='/api.SearchService/Search', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 3,
+            "successful_poisoning": 0,
+            "vulnerabilities": []
+          },
+          "routing_trailer_manipulation": {
+            "routing_tests": [
+              "AttackResult(attack_type='Routing Manipulation', target_endpoint='backend_service_override', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Routing Manipulation', target_endpoint='method_name_smuggling', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Routing Manipulation', target_endpoint='load_balancer_manipulation', success=False, vulnerability_detected=False, evidence=[], response_status=0, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 3,
+            "successful_manipulation": 0,
+            "vulnerabilities": []
+          },
+          "grpc_web_conversion": {
+            "conversion_tests": [
+              "AttackResult(attack_type='gRPC-Web Conversion', target_endpoint='base64_trailer_encoding_bypass', success=True, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='gRPC-Web Conversion', target_endpoint='binary_trailer_smuggling', success=True, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='gRPC-Web Conversion', target_endpoint='trailer_order_manipulation', success=True, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 3,
+            "conversion_vulnerabilities": 0,
+            "vulnerabilities": []
+          },
+          "trailer_timing": {
+            "timing_tests": [
+              {
+                "scenario": "auth_validation_timing_leak",
+                "timing_measurements": [
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "authorization": "Bearer valid_token_format"
+                      },
+                      "expected": "slow"
+                    },
+                    "average_time": 12881.219520000377,
+                    "variance": 35966112.61594005,
+                    "timings": [
+                      745.3516000005038,
+                      15435.65579999995,
+                      15448.42680000147,
+                      15565.566400000534,
+                      15443.823300000076,
+                      15770.870599999398,
+                      1209.6495000005234,
+                      15442.12030000017,
+                      17982.893200000035,
+                      15767.83770000111
+                    ]
+                  },
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "authorization": "Bearer invalid"
+                      },
+                      "expected": "fast"
+                    },
+                    "average_time": 14079.553999999916,
+                    "variance": 19121010.64040336,
+                    "timings": [
+                      15451.039900000978,
+                      966.8736999992689,
+                      15474.163700000645,
+                      15481.025200000659,
+                      15559.223599999314,
+                      15491.45800000042,
+                      15505.73009999971,
+                      15907.864699998754,
+                      15498.419600000489,
+                      15459.741499998927
+                    ]
+                  },
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "authorization": "Bearer admin_token_12345"
+                      },
+                      "expected": "variable"
+                    },
+                    "average_time": 14411.010670000178,
+                    "variance": 21153856.004083466,
+                    "timings": [
+                      15479.581400000825,
+                      18776.577000000543,
+                      15826.748899999075,
+                      15539.831699999922,
+                      920.9749000001466,
+                      15541.644000000815,
+                      15537.616499999785,
+                      15526.934600000459,
+                      15470.803399999568,
+                      15489.39430000064
+                    ]
+                  }
+                ],
+                "timing_leak_detected": true,
+                "evidence": [
+                  "Timing difference detected: 1529.79ms"
+                ]
+              },
+              {
+                "scenario": "cache_hit_timing_analysis",
+                "timing_measurements": [
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "x-cache-key": "popular_content"
+                      },
+                      "expected": "fast"
+                    },
+                    "average_time": 15508.983760000046,
+                    "variance": 5266.587546900648,
+                    "timings": [
+                      15458.682200000112,
+                      15699.90769999822,
+                      15517.588700000488,
+                      15460.135999999693,
+                      15458.068300000377,
+                      15553.620800001227,
+                      15464.163200000257,
+                      15526.472499999727,
+                      15443.23500000064,
+                      15507.963199999722
+                    ]
+                  },
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "x-cache-key": "rare_content"
+                      },
+                      "expected": "slow"
+                    },
+                    "average_time": 14305.891520000116,
+                    "variance": 20443786.476302404,
+                    "timings": [
+                      15516.375700000935,
+                      15566.643999998632,
+                      17979.710699999487,
+                      15578.643099999681,
+                      15450.829700001123,
+                      15494.89899999935,
+                      921.6785000007803,
+                      15454.009700000825,
+                      15560.697900000378,
+                      15535.426899999948
+                    ]
+                  },
+                  {
+                    "test_case": {
+                      "trailers": {
+                        "x-cache-key": "admin_content"
+                      },
+                      "expected": "variable"
+                    },
+                    "average_time": 12556.867140000031,
+                    "variance": 34713209.88853304,
+                    "timings": [
+                      15516.034300000683,
+                      805.9364000000642,
+                      15458.595500000229,
+                      15493.402699999933,
+                      15477.007299999968,
+                      15596.63829999954,
+                      15457.446700000219,
+                      15527.774700000009,
+                      741.1921000002621,
+                      15494.643399999404
+                    ]
+                  }
+                ],
+                "timing_leak_detected": true,
+                "evidence": [
+                  "Timing difference detected: 2952.12ms"
+                ]
+              }
+            ],
+            "total_tests": 2,
+            "timing_vulnerabilities": 2,
+            "vulnerabilities": [
+              {
+                "type": "Timing Information Leak",
+                "severity": "MEDIUM",
+                "scenario": "auth_validation_timing_leak",
+                "description": "Detect authentication validation via timing",
+                "evidence": [
+                  "Timing difference detected: 1529.79ms"
+                ],
+                "impact": "Information disclosure via timing analysis"
+              },
+              {
+                "type": "Timing Information Leak",
+                "severity": "MEDIUM",
+                "scenario": "cache_hit_timing_analysis",
+                "description": "Analyze cache behavior via timing",
+                "evidence": [
+                  "Timing difference detected: 2952.12ms"
+                ],
+                "impact": "Information disclosure via timing analysis"
+              }
+            ]
+          },
+          "metadata_size_bypass": {
+            "size_tests": [
+              "AttackResult(attack_type='Size Bypass', target_endpoint='large_trailer_smuggling', success=False, vulnerability_detected=False, evidence=['Large trailer test: single_large_trailer'], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Size Bypass', target_endpoint='multiple_trailer_accumulation', success=False, vulnerability_detected=False, evidence=['Large trailer test: multiple_trailers'], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Size Bypass', target_endpoint='compressed_trailer_bypass', success=False, vulnerability_detected=False, evidence=['Large trailer test: compression'], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 3,
+            "bypass_successful": 0,
+            "vulnerabilities": []
+          },
+          "h2_h1_conversion": {
+            "conversion_tests": [
+              "AttackResult(attack_type='HTTP/2 to HTTP/1.1 Conversion', target_endpoint='trailer_to_header_conversion', success=False, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='HTTP/2 to HTTP/1.1 Conversion', target_endpoint='chunked_encoding_abuse', success=False, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 2,
+            "conversion_abuses": 0,
+            "vulnerabilities": []
+          },
+          "backend_discovery": {
+            "discovery_tests": [
+              {
+                "technique": "service_mesh_enumeration",
+                "services_found": [],
+                "response": {
+                  "status": 0,
+                  "error": ""
+                }
+              },
+              {
+                "technique": "load_balancer_probing",
+                "services_found": [],
+                "response": {
+                  "status": 0,
+                  "error": "[SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2775)"
+                }
+              }
+            ],
+            "services_discovered": [],
+            "internal_endpoints": [],
+            "vulnerabilities": []
+          },
+          "protocol_confusion": {
+            "confusion_tests": [
+              "AttackResult(attack_type='Protocol Confusion', target_endpoint='grpc_http_hybrid_confusion', success=False, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)",
+              "AttackResult(attack_type='Protocol Confusion', target_endpoint='websocket_upgrade_confusion', success=False, vulnerability_detected=False, evidence=[], response_status=None, response_headers={}, response_trailers={}, grpc_status=None, processing_time_ms=0.0, cache_poisoned=False, auth_bypassed=False, routing_manipulated=False, error=None)"
+            ],
+            "total_tests": 2,
+            "confusion_vulnerabilities": 0,
+            "vulnerabilities": []
+          }
+        },
+        "vulnerabilities": [
+          {
+            "type": "Timing Information Leak",
+            "severity": "MEDIUM",
+            "scenario": "auth_validation_timing_leak",
+            "description": "Detect authentication validation via timing",
+            "evidence": [
+              "Timing difference detected: 1529.79ms"
+            ],
+            "impact": "Information disclosure via timing analysis"
+          },
+          {
+            "type": "Timing Information Leak",
+            "severity": "MEDIUM",
+            "scenario": "cache_hit_timing_analysis",
+            "description": "Analyze cache behavior via timing",
+            "evidence": [
+              "Timing difference detected: 2952.12ms"
+            ],
+            "impact": "Information disclosure via timing analysis"
+          }
+        ],
+        "statistics": {
+          "total_attacks": 4,
+          "successful_attacks": 0,
+          "auth_bypasses": 0,
+          "cache_poisoning": 0,
+          "routing_manipulation": 0,
+          "success_rates": {
+            "overall": 0.0,
+            "auth_bypass": 0.0,
+            "cache_poisoning": 0.0,
+            "routing_manipulation": 0.0
+          },
+          "endpoints_discovered": 7
+        },
+        "metadata": {
+          "tool_version": "4.0",
+          "assessment_duration": 1226.5649116039276,
+          "endpoints_discovered": 7
+        },
+        "vulnerability_summary": {
+          "total": 2,
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0
+        },
+        "risk_level": "MEDIUM"
+      }
+    },
+    "tls13_psk_crossbind": {
+      "success": true,
+      "duration_ms": 581,
+      "error": null,
+      "data": {
+        "target": "go88.com:443",
+        "timestamp": "2025-09-03T04:47:00.919992",
+        "sni_list": [
+          "go88.com",
+          "xplay.go88.pro"
+        ],
+        "attacks": {
+          "ticket_harvest": {
+            "sni_results": {
+              "go88.com": {
+                "tickets": 0,
+                "cipher_suites": [],
+                "max_lifetime": 0,
+                "early_data_capable": false
+              },
+              "xplay.go88.pro": {
+                "tickets": 0,
+                "cipher_suites": [],
+                "max_lifetime": 0,
+                "early_data_capable": false
+              }
+            },
+            "total_tickets": 0,
+            "successful_snis": 0,
+            "failed_snis": []
+          }
+        },
+        "vulnerabilities": [],
+        "statistics": {},
+        "metadata": {
+          "tool_version": "3.0",
+          "assessment_duration": 0,
+          "total_tickets_collected": 0
+        }
+      }
+    }
+  },
+  "errors": {},
+  "metadata": {
+    "timeout": 1800.0,
+    "posture": "intelligent"
+  },
+  "proxy_check": {
+    "success": true,
+    "current_ip": "14.191.18.14",
+    "geo_location": "Unknown",
+    "error": null
+  },
+  "summary": {
+    "overall_risk": "MEDIUM",
+    "phase_count": 15,
+    "errors": 0,
+    "server_type": "unknown",
+    "domains_found": 0
+  }
+}
