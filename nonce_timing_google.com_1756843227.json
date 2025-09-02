@@ -1,0 +1,630 @@
+{
+  "target": "google.com:443",
+  "signatures": [
+    {
+      "response_time": 19.249756005592644,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.3242302,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.54489995073527,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.391961,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.652051941491663,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.4587808,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.137511003762484,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.5251367,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.383576021529734,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.5926664,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.172819072380662,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.6589832,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 19.009483978152275,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.7281563,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.96648891083896,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.7953007,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.226809985004365,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.8627317,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.999544062651694,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.9288974,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.94897799845785,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843220.9970088,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.645470073446631,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.0618248,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.270053059794009,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.1272595,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.44371496513486,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.1938655,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 19.71216092351824,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.263763,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 19.756961963139474,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.3336637,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.529580906033516,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.4023612,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.267232014797628,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.46879,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.63411599677056,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.5365896,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.995852067135274,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.6027453,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 43.521774001419544,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843221.696481,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 17.550628981553018,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.7642589,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.947082011029124,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.831371,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 19.81477893423289,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.9013946,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.781657002866268,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843221.9683409,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.61989400256425,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.0361261,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.5888499468565,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.1028802,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.298323986120522,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.1693535,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.126453014090657,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.2347362,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 40.719705051742494,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843222.325704,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 18.179946928285062,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.394073,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.09061798080802,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.4603403,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.792776994407177,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.527333,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.903941985219717,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.5944335,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.90737495664507,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.6615336,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.287456965073943,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.727983,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.177366931922734,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.7963297,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.348265926353633,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.8628395,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.980198026634753,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.9309855,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.666585950180888,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843222.9958265,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.064893036149442,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.0630856,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.149655031971633,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.1304781,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.23237195983529,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.1978755,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.43239292409271,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.2654834,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.63466601166874,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.3322937,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 13.843575026839972,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.3963037,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.877082991413772,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.463344,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.052214079536498,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.5295608,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.38857100624591,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.596114,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.485768999904394,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.6637635,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.40651307348162,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.728432,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.670197968371212,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.7932658,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.230586032383144,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.8606594,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.36880198586732,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.9281952,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.94527897052467,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843223.9953036,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.83057502284646,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.0612962,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.61848502792418,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.129077,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 42.658329010009766,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843224.2219026,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 16.518846969120204,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.2885966,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.211619997397065,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.355972,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.498821972869337,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.421675,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.073033028282225,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.4890015,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.81339303124696,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.557238,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 42.441826895810664,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843224.649842,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 58.01868706475943,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843224.7580378,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 14.61947406642139,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.8228216,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.82364195585251,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.8898082,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.942383044399321,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843224.9549701,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.853166045621037,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.0219898,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.130598098039627,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.0872972,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.139419960789382,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.155779,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.670548986643553,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.2237215,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.163479002192616,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.2910588,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.255891045555472,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.3595068,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.145665034651756,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.4248314,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 14.211936970241368,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.4892402,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.838030027225614,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.5552053,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.190264956094325,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.6215615,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.34351403824985,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.68711,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 41.90203105099499,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843225.7791746,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 16.328140045516193,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.8457308,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.00007198471576,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.9139085,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 13.694358058273792,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843225.9777687,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.140390002168715,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.0450687,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 19.429789041168988,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.1146579,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.05153502896428,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.1808732,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.42771901283413,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.2495558,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.889296006411314,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.3166115,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.875058947131038,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.38265,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.085097962990403,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.449919,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.761342925950885,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.5179033,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.637722077779472,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.5856965,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.62288000807166,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.652515,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 42.746447026729584,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843226.7454865,
+      "cert_size": 3441
+    },
+    {
+      "response_time": 17.33685110229999,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.8130004,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 18.062038929201663,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.881237,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 16.315277898684144,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843226.9477458,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 15.70502994582057,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843227.013623,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 17.72091689053923,
+      "cert_hash": "0082e828f5e00051",
+      "timestamp": 1756843227.0815053,
+      "cert_size": 3634
+    },
+    {
+      "response_time": 42.12825698778033,
+      "cert_hash": "c75adf84637c2a5d",
+      "timestamp": 1756843227.173811,
+      "cert_size": 3441
+    }
+  ],
+  "analysis": {
+    "timing": {
+      "total_samples": 100,
+      "avg_ms": 19.01,
+      "min_ms": 13.69,
+      "max_ms": 58.02,
+      "fast_responses": 2,
+      "slow_responses": 8,
+      "variance": 44.32,
+      "timing_leak": "MEDIUM - \u5b58\u5728\u65f6\u5e8f\u5dee\u5f02"
+    },
+    "patterns": {
+      "fast_group": {
+        "count": 25,
+        "avg_time": 15.231662704609334,
+        "hash_0_prefix": "25/25 (100.0%)"
+      },
+      "slow_group": {
+        "count": 25,
+        "avg_time": 26.824983707629144,
+        "hash_0_prefix": "17/25 (68.0%)"
+      },
+      "bias_detected": "YES - \u5feb\u6162\u7ec4\u54c8\u5e0c\u5206\u5e03\u4e0d\u540c"
+    }
+  }
+}
