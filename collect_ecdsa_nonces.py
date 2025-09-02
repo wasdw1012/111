@@ -37,7 +37,7 @@ class ECDSACollector:
             elapsed = time.perf_counter() - start
             
             # 获取证书信息
-            cert = ssock.getpeercert_bin()
+            cert = ssock.getpeercert(binary_form=True)
             cert_hash = hashlib.sha256(cert).digest()
             
             # 简化：只记录时序和哈希
